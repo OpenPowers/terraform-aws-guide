@@ -1,1 +1,4 @@
+theme:
+  name: material
+
 site_name: Terraform At AWS Guide

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>4、快速建立第一个 EC2 实例   本地授权方式 - Terraform At AWS Guide</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Terraform At AWS Guide</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Terraform at AWS Guide</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../10%E3%80%81%E5%AE%9A%E4%B9%89AWS%E5%AE%89%E5%85%A8%E7%BB%84/" class="nav-link">10、定义AWS安全组</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../11%E3%80%81EC2%20%E6%95%B0%E6%8D%AE%E6%BA%90%20-%20%E4%BD%BF%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%20AMI%20%E6%95%B0%E6%8D%AE%E6%BA%90/" class="nav-link">11、EC2 数据源   使用最新的 AMI 数据源</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../12%E3%80%81Output%20Values%20-%20%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9/" class="nav-link">12、Output Values   定义输出内容</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../13%E3%80%81%E5%AE%9A%E4%B9%89%20EC2%20%E7%9A%84Size%E5%88%97%E8%A1%A8/" class="nav-link">13、定义 EC2 的Size列表</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../14%E3%80%81%E5%AE%9A%E4%B9%89%20EC2%20%E7%9A%84Size%E6%98%A0%E5%B0%84/" class="nav-link">14、定义 EC2 的Size映射</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../15%E3%80%81%E5%90%8C%E6%97%B6%E5%90%AF%E5%8A%A8%E5%A4%9A%E5%8F%B0%20EC2%20%E5%AE%9E%E4%BE%8B/" class="nav-link">15、同时启动多台 EC2 实例</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../16%E3%80%81%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA%E6%95%B0%E6%8D%AE%E6%BA%90%2C%20%E5%88%86%E5%88%AB%E5%90%AF%E5%8A%A8%20EC2/" class="nav-link">16、查询可用区数据源, 分别启动 EC2</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../1%E3%80%81%E7%AE%80%E4%BB%8B/" class="nav-link">Terraform 云平台管理工具</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../2%E3%80%81%E5%AE%89%E8%A3%85%E5%8F%8AAWS%E6%8E%88%E6%9D%83/" class="nav-link">2、安装及AWS授权</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../3%E3%80%81Terraform%20%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="nav-link">Terraform 工作流</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">4、快速建立第一个 EC2 实例   本地授权方式</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../5%E3%80%81%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E4%B8%AA%20EC2%20%E5%AE%9E%E4%BE%8B%20-%20EC2%E6%8E%88%E6%9D%83%E6%96%B9%E5%BC%8F.md/" class="nav-link">快速建立第一个 EC2 实例 - EC2授权方式</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../6%E3%80%81%E5%88%86%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%20Terraform%20%E8%B5%84%E6%BA%90/" class="nav-link">6、分文件管理 Terraform 资源</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../7%E3%80%81tf%E8%AE%BE%E7%BD%AEEC2%E8%B5%84%E6%BA%90%E7%9A%84%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE/" class="nav-link">使用 EC2 用户数据</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../8%E3%80%81%E7%8A%B6%E6%80%81%E6%96%87%E4%BB%B6%20-%20%22terraform.tfstate%22/" class="nav-link">8、状态文件   "terraform.tfstate"</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../9%E3%80%81%E5%AE%9A%E4%B9%89%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F/" class="nav-link">9、定义引用变量</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../3%E3%80%81Terraform%20%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../5%E3%80%81%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E4%B8%AA%20EC2%20%E5%AE%9E%E4%BE%8B%20-%20EC2%E6%8E%88%E6%9D%83%E6%96%B9%E5%BC%8F.md/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ec2-" class="nav-link">快速建立第一个 EC2 实例 - 本地授权方式</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">知识点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">官网</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">实战演习/说明讲解</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">操作步骤</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ec2-">快速建立第一个 EC2 实例 - 本地授权方式</h1>
+<h2 id="_1">知识点</h2>
+<ul>
+<li>使用 Terraform 快速建立第一个 EC2 实例</li>
+</ul>
+<h2 id="_2">官网</h2>
+<p>https://registry.terraform.io/</p>
+<ul>
+<li>Terraform Registry是Terraform的注册机，相当于java的maven、Nodejs的NPMjs，这里集成了所以Terraform的中间件，主要分为两个类型：</li>
+<li>Providers：提供器，几乎是官方维护。例如要建立AWS基于Terraform的平台，就需要AWS的提供器来支持后端的云平台。</li>
+<li>Modules：模块，几乎是个人或组织维护。有了上面很多的提供器，想高效的使用就需要用到模块。</li>
+</ul>
+<h2 id="_3">实战演习/说明讲解</h2>
+<p><img alt="image-20230216211706063" src="../assets/image-20230216211706063.png" /></p>
+<ul>
+<li>建立本地 Terraform 文件, (简称 tf 文件)</li>
+<li>遵循 Terraform 工作流程完成资源部署 - init、validate、plan、apply、destroy</li>
+<li>动作确认</li>
+</ul>
+<h2 id="_4">操作步骤</h2>
+<h3 id="terraform-tf">建立本地 Terraform 文件, (简称 tf 文件)</h3>
+<pre><code class="language-bash">$ mkdir awstf
+$ cd awstf
+$ vim main.tf
+</code></pre>
+<p><em>main.tf</em></p>
+<pre><code class="language-bash">###########################################################
+# Terraform 基本设置
+terraform {
+    # 声明provider
+  required_providers {
+    # https://registry.terraform.io/browse/providers
+    aws = {
+      source  = &quot;hashicorp/aws&quot;
+      version = &quot;~&gt; 3.74&quot;
+    }
+  }
+    # 声明Terraform版本
+  required_version = &quot;&gt;= 1.1.4&quot;
+}
+
+###########################################################
+# 提供商设置(云平台)
+# 描述AWS Provider
+# https://registry.terraform.io/providers/hashicorp/aws/latest
+provider &quot;aws&quot; {
+    # ~/.aws/credentials文件的[name]
+  profile = &quot;learnaws&quot;
+  region  = &quot;ap-northeast-1&quot;
+}
+
+###########################################################
+# 描述要生成的资源设置
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
+resource &quot;aws_instance&quot; &quot;myweb_server&quot; {
+  ami           = &quot;ami-0218d08a1f9dac831&quot;
+  instance_type = &quot;t3.micro&quot;
+  tags = {
+    Name = &quot;learnaws-ec2-from-terraform&quot;
+  }
+}
+</code></pre>
+<h3 id="terraform">遵循 Terraform 工作流程完成资源部署</h3>
+<pre><code class="language-bash"># 目录初始化（会现在必要的安装包和provider）
+$ terraform init
+# 确认提供商管理文件, 该文件记录具体的提供商版本信息, 应该包含到源代码信息库中
+$ ls -a
+$ cat .terraform.lock.hcl
+
+# 检验 tf 文件
+$ terraform validate
+
+# 实施计划, 准备资源
+$ terraform plan
+...
+&gt;Plan: 1 to add, 0 to change, 0 to destroy.
+
+# 应用部署
+$ terraform apply
+...
+&gt;Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+# 摧毁系统，即把当前tf脚本描述的所有资源全部摧毁
+$ terraform destroy
+...
+&gt;Destroy complete! Resources: 1 destroyed.
+</code></pre>
+<h3 id="_5">动作确认</h3>
+<p>Done.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,774 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>使用 EC2 用户数据 - Terraform at AWS Guide</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u4f7f\u7528 EC2 \u7528\u6237\u6570\u636e";
+        var mkdocs_page_input_path = "7\u3001tf\u8bbe\u7f6eEC2\u8d44\u6e90\u7684\u7528\u6237\u6570\u636e.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-        <link rel="prev" href="../6%E3%80%81%E5%88%86%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%20Terraform%20%E8%B5%84%E6%BA%90/">
-      
-      
-        <link rel="next" href="../8%E3%80%81%E7%8A%B6%E6%80%81%E6%96%87%E4%BB%B6%20-%20%22terraform.tfstate%22/">
-      
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.12">
-    
-    
-      
-        <title>使用 EC2 用户数据 - Terraform At AWS Guide</title>
-      
-    
-    
-      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
-      
-      
+<body class="wy-body-for-nav" role="document">
 
-    
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-    
-  </head>
-  
-  
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
-  
-    
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#ec2" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
-<header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Terraform At AWS Guide" class="md-header__button md-logo" aria-label="Terraform At AWS Guide" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Terraform At AWS Guide
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              使用 EC2 用户数据
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Terraform at AWS Guide
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
 </div>
-    
-    
-  </nav>
-  
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
+      </div>
 
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Terraform At AWS Guide" class="md-nav__button md-logo" aria-label="Terraform At AWS Guide" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
-
-    </a>
-    Terraform At AWS Guide
-  </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Terraform at AWS Guide
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../10%E3%80%81%E5%AE%9A%E4%B9%89AWS%E5%AE%89%E5%85%A8%E7%BB%84/" class="md-nav__link">
-        10、定义AWS安全组
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../11%E3%80%81EC2%20%E6%95%B0%E6%8D%AE%E6%BA%90%20-%20%E4%BD%BF%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%20AMI%20%E6%95%B0%E6%8D%AE%E6%BA%90/" class="md-nav__link">
-        11、EC2 数据源   使用最新的 AMI 数据源
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../12%E3%80%81Output%20Values%20-%20%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9/" class="md-nav__link">
-        12、Output Values   定义输出内容
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../13%E3%80%81%E5%AE%9A%E4%B9%89%20EC2%20%E7%9A%84Size%E5%88%97%E8%A1%A8/" class="md-nav__link">
-        13、定义 EC2 的Size列表
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../14%E3%80%81%E5%AE%9A%E4%B9%89%20EC2%20%E7%9A%84Size%E6%98%A0%E5%B0%84/" class="md-nav__link">
-        14、定义 EC2 的Size映射
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../15%E3%80%81%E5%90%8C%E6%97%B6%E5%90%AF%E5%8A%A8%E5%A4%9A%E5%8F%B0%20EC2%20%E5%AE%9E%E4%BE%8B/" class="md-nav__link">
-        15、同时启动多台 EC2 实例
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../16%E3%80%81%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA%E6%95%B0%E6%8D%AE%E6%BA%90%2C%20%E5%88%86%E5%88%AB%E5%90%AF%E5%8A%A8%20EC2/" class="md-nav__link">
-        16、查询可用区数据源, 分别启动 EC2
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../1%E3%80%81%E7%AE%80%E4%BB%8B/" class="md-nav__link">
-        Terraform 云平台管理工具
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../2%E3%80%81%E5%AE%89%E8%A3%85%E5%8F%8AAWS%E6%8E%88%E6%9D%83/" class="md-nav__link">
-        2、安装及AWS授权
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../3%E3%80%81Terraform%20%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="md-nav__link">
-        Terraform 工作流
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../4%E3%80%81%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E4%B8%AA%20EC2%20%E5%AE%9E%E4%BE%8B%20-%20%E6%9C%AC%E5%9C%B0%E6%8E%88%E6%9D%83%E6%96%B9%E5%BC%8F/" class="md-nav__link">
-        4、快速建立第一个 EC2 实例   本地授权方式
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../5%E3%80%81%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E4%B8%AA%20EC2%20%E5%AE%9E%E4%BE%8B%20-%20EC2%E6%8E%88%E6%9D%83%E6%96%B9%E5%BC%8F.md/" class="md-nav__link">
-        快速建立第一个 EC2 实例 - EC2授权方式
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../6%E3%80%81%E5%88%86%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%20Terraform%20%E8%B5%84%E6%BA%90/" class="md-nav__link">
-        6、分文件管理 Terraform 资源
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          使用 EC2 用户数据
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        使用 EC2 用户数据
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    知识点
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    实战演习/说明讲解
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    操作步骤
-  </a>
-  
-    <nav class="md-nav" aria-label="操作步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    目录结构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    准备用户数据文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ec2_1" class="md-nav__link">
-    EC2 资源配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    项目描述文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    部署确认
-  </a>
-  
-</li>
-        
-      </ul>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+      </div>
+    </div>
     </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Terraform at AWS Guide</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+      <li>使用 EC2 用户数据</li>
+    <li class="wy-breadcrumbs-aside">
     </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../8%E3%80%81%E7%8A%B6%E6%80%81%E6%96%87%E4%BB%B6%20-%20%22terraform.tfstate%22/" class="md-nav__link">
-        8、状态文件   "terraform.tfstate"
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../9%E3%80%81%E5%AE%9A%E4%B9%89%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F/" class="md-nav__link">
-        9、定义引用变量
-      </a>
-    </li>
-  
-
-    
   </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    知识点
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    实战演习/说明讲解
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    操作步骤
-  </a>
-  
-    <nav class="md-nav" aria-label="操作步骤">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    目录结构
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    准备用户数据文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ec2_1" class="md-nav__link">
-    EC2 资源配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    项目描述文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    部署确认
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-
-<h1 id="ec2">使用 EC2 用户数据</h1>
-<h2 id="_1">知识点</h2>
+                <h1 id="ec2">使用 EC2 用户数据<a class="headerlink" href="#ec2" title="Permanent link">&para;</a></h1>
+<h2 id="_1">知识点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <ul>
 <li>启动 EC2 时准备用户数据</li>
 </ul>
-<h2 id="_2">实战演习/说明讲解</h2>
+<h2 id="_2">实战演习/说明讲解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><img alt="image-20230217101520963" src="../assets/image-20230217101520963.png" /></p>
 <ul>
 <li>准备用户数据文件</li>
 <li>修改 EC2 资源配置文件</li>
 <li>部署确认</li>
 </ul>
-<h2 id="_3">操作步骤</h2>
-<h3 id="_4">目录结构</h3>
-<pre><code class="language-bash">.
-├── ec2.tf
-├── main.tf
-└── ec2-userdata.sh
-</code></pre>
-<h3 id="_5">准备用户数据文件</h3>
+<h2 id="_3">操作步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">目录结构<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code>.
+├──<span class="w"> </span>ec2.tf
+├──<span class="w"> </span>main.tf
+└──<span class="w"> </span>ec2-userdata.sh
+</code></pre></div>
+
+<h3 id="_5">准备用户数据文件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p><em>ec2-userdata.sh</em></p>
-<pre><code class="language-bash">#!/bin/bash
-yum update -y
-# 设置ec2区域
-timedatectl set-timezone &quot;Asia/Tokyo&quot;
-localectl set-locale LANG=ja_JP.UTF-8
-touch /home/ec2-user/.hushlogin
-chown ec2-user:ec2-user /home/ec2-user/.hushlogin
-# 安装aws cli命令行工具
-curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;/tmp/awscliv2.zip&quot;
-unzip /tmp/awscliv2.zip  -d /tmp/awscliv2/
+<div class="codehilite"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+yum<span class="w"> </span>update<span class="w"> </span>-y
+<span class="c1"># 设置ec2区域</span>
+timedatectl<span class="w"> </span>set-timezone<span class="w"> </span><span class="s2">&quot;Asia/Tokyo&quot;</span>
+localectl<span class="w"> </span>set-locale<span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>ja_JP.UTF-8
+touch<span class="w"> </span>/home/ec2-user/.hushlogin
+chown<span class="w"> </span>ec2-user:ec2-user<span class="w"> </span>/home/ec2-user/.hushlogin
+<span class="c1"># 安装aws cli命令行工具</span>
+curl<span class="w"> </span><span class="s2">&quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot;</span><span class="w"> </span>-o<span class="w"> </span><span class="s2">&quot;/tmp/awscliv2.zip&quot;</span>
+unzip<span class="w"> </span>/tmp/awscliv2.zip<span class="w">  </span>-d<span class="w"> </span>/tmp/awscliv2/
 /tmp/awscliv2/aws/install
-# 安装Nodejs
-curl -sL https://rpm.nodesource.com/setup_14.x | bash -
-yum install -y gcc-c++ make
-yum install -y nodejs
-# 安装Apache开启80 http服务
-yum install -y httpd
-systemctl enable httpd
-service httpd start  
-sudo echo '&lt;h1&gt;Terraform EC2.&lt;/h1&gt;' | sudo tee /var/www/html/index.html
-</code></pre>
-<h3 id="ec2_1">EC2 资源配置文件</h3>
+<span class="c1"># 安装Nodejs</span>
+curl<span class="w"> </span>-sL<span class="w"> </span>https://rpm.nodesource.com/setup_14.x<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash<span class="w"> </span>-
+yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>gcc-c++<span class="w"> </span>make
+yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nodejs
+<span class="c1"># 安装Apache开启80 http服务</span>
+yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>httpd
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>httpd
+service<span class="w"> </span>httpd<span class="w"> </span>start<span class="w">  </span>
+sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;&lt;h1&gt;Terraform EC2.&lt;/h1&gt;&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/var/www/html/index.html
+</code></pre></div>
+
+<h3 id="ec2_1">EC2 资源配置文件<a class="headerlink" href="#ec2_1" title="Permanent link">&para;</a></h3>
 <p><em>ec2.tf</em></p>
-<pre><code class="language-bash">###########################################################
-# EC2 资源设置
-resource &quot;aws_instance&quot; &quot;myweb_server2&quot; {
-  ami           = &quot;ami-0218d08a1f9dac831&quot;
-  instance_type = &quot;t3.micro&quot;
-  # 用来ssh密钥登陆
-  key_name      = &quot;learnaws-ssh-key&quot;
-  # 引用ec2-userdata.sh脚本，${path.module}是当前路径
-  user_data     = file(&quot;${path.module}/ec2-userdata.sh&quot;)
-  tags = {
-    Name = &quot;learnaws-ec2-from-terraform2&quot;
-  }
-}
-</code></pre>
-<h3 id="_6">项目描述文件</h3>
+<div class="codehilite"><pre><span></span><code><span class="c1">###########################################################</span>
+<span class="c1"># EC2 资源设置</span>
+resource<span class="w"> </span><span class="s2">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s2">&quot;myweb_server2&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ami-0218d08a1f9dac831&quot;</span>
+<span class="w">  </span><span class="nv">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t3.micro&quot;</span>
+<span class="w">  </span><span class="c1"># 用来ssh密钥登陆</span>
+<span class="w">  </span><span class="nv">key_name</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;learnaws-ssh-key&quot;</span>
+<span class="w">  </span><span class="c1"># 引用ec2-userdata.sh脚本，${path.module}是当前路径</span>
+<span class="w">  </span><span class="nv">user_data</span><span class="w">     </span><span class="o">=</span><span class="w"> </span>file<span class="o">(</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">path</span><span class="p">.module</span><span class="si">}</span><span class="s2">/ec2-userdata.sh&quot;</span><span class="o">)</span>
+<span class="w">  </span><span class="nv">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;learnaws-ec2-from-terraform2&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+
+<h3 id="_6">项目描述文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><em>main.tf</em></p>
-<pre><code class="language-bash">###########################################################
-# Terraform 基本设置
-terraform {
-  required_providers {
-    aws = {
-      source  = &quot;hashicorp/aws&quot;
-      version = &quot;~&gt; 3.74&quot;
-    }
-  }
-  required_version = &quot;&gt;= 1.1.4&quot;
-}
+<div class="codehilite"><pre><span></span><code><span class="c1">###########################################################</span>
+<span class="c1"># Terraform 基本设置</span>
+terraform<span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>required_providers<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">aws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nb">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/aws&quot;</span>
+<span class="w">      </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 3.74&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="w">  </span><span class="nv">required_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;= 1.1.4&quot;</span>
+<span class="o">}</span>
 
-###########################################################
-# 提供商设置(云平台)
-provider &quot;aws&quot; {
-  profile = &quot;learnaws&quot;
-  region  = &quot;ap-northeast-1&quot;
-}
-</code></pre>
-<h3 id="_7">部署确认</h3>
-<pre><code class="language-bash"># 目录初始化
-$ terraform init
-# 检验 tf 文件
-$ terraform validate
-# 实施计划, 准备资源
-$ terraform plan
-# 应用部署
-$ terraform apply
-$ terraform apply -auto-approve # 自动确认，会自动输入yes
-# 摧毁系统
-$ terraform destroy -auto-approve
+<span class="c1">###########################################################</span>
+<span class="c1"># 提供商设置(云平台)</span>
+provider<span class="w"> </span><span class="s2">&quot;aws&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;learnaws&quot;</span>
+<span class="w">  </span><span class="nv">region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ap-northeast-1&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
 
-# 访问ec2的ip，网页输出“Terraform EC2.”即成功
-</code></pre>
+<h3 id="_7">部署确认<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 目录初始化</span>
+$<span class="w"> </span>terraform<span class="w"> </span>init
+<span class="c1"># 检验 tf 文件</span>
+$<span class="w"> </span>terraform<span class="w"> </span>validate
+<span class="c1"># 实施计划, 准备资源</span>
+$<span class="w"> </span>terraform<span class="w"> </span>plan
+<span class="c1"># 应用部署</span>
+$<span class="w"> </span>terraform<span class="w"> </span>apply
+$<span class="w"> </span>terraform<span class="w"> </span>apply<span class="w"> </span>-auto-approve<span class="w"> </span><span class="c1"># 自动确认，会自动输入yes</span>
+<span class="c1"># 摧毁系统</span>
+$<span class="w"> </span>terraform<span class="w"> </span>destroy<span class="w"> </span>-auto-approve
 
-
-
-
-
-                
-              </article>
+<span class="c1"># 访问ec2的ip，网页输出“Terraform EC2.”即成功</span>
+</code></pre></div>
+              
             </div>
-          
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
           
         </div>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
-</div>
-      
-    </div>
+      </div>
+
+    </section>
+
   </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <script src="../assets/javascripts/bundle.4b2c34cd.min.js"></script>
-      
     
-  </body>
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
 </html>

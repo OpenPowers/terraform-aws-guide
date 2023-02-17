@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>8、状态文件   "terraform.tfstate" - Terraform At AWS Guide</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Terraform At AWS Guide</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Terraform at AWS Guide</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../10%E3%80%81%E5%AE%9A%E4%B9%89AWS%E5%AE%89%E5%85%A8%E7%BB%84/" class="nav-link">10、定义AWS安全组</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../11%E3%80%81EC2%20%E6%95%B0%E6%8D%AE%E6%BA%90%20-%20%E4%BD%BF%E7%94%A8%E6%9C%80%E6%96%B0%E7%9A%84%20AMI%20%E6%95%B0%E6%8D%AE%E6%BA%90/" class="nav-link">11、EC2 数据源   使用最新的 AMI 数据源</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../12%E3%80%81Output%20Values%20-%20%E5%AE%9A%E4%B9%89%E8%BE%93%E5%87%BA%E5%86%85%E5%AE%B9/" class="nav-link">12、Output Values   定义输出内容</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../13%E3%80%81%E5%AE%9A%E4%B9%89%20EC2%20%E7%9A%84Size%E5%88%97%E8%A1%A8/" class="nav-link">13、定义 EC2 的Size列表</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../14%E3%80%81%E5%AE%9A%E4%B9%89%20EC2%20%E7%9A%84Size%E6%98%A0%E5%B0%84/" class="nav-link">14、定义 EC2 的Size映射</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../15%E3%80%81%E5%90%8C%E6%97%B6%E5%90%AF%E5%8A%A8%E5%A4%9A%E5%8F%B0%20EC2%20%E5%AE%9E%E4%BE%8B/" class="nav-link">15、同时启动多台 EC2 实例</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../16%E3%80%81%E6%9F%A5%E8%AF%A2%E5%8F%AF%E7%94%A8%E5%8C%BA%E6%95%B0%E6%8D%AE%E6%BA%90%2C%20%E5%88%86%E5%88%AB%E5%90%AF%E5%8A%A8%20EC2/" class="nav-link">16、查询可用区数据源, 分别启动 EC2</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../1%E3%80%81%E7%AE%80%E4%BB%8B/" class="nav-link">Terraform 云平台管理工具</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../2%E3%80%81%E5%AE%89%E8%A3%85%E5%8F%8AAWS%E6%8E%88%E6%9D%83/" class="nav-link">2、安装及AWS授权</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../3%E3%80%81Terraform%20%E5%B7%A5%E4%BD%9C%E6%B5%81/" class="nav-link">Terraform 工作流</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../4%E3%80%81%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E4%B8%AA%20EC2%20%E5%AE%9E%E4%BE%8B%20-%20%E6%9C%AC%E5%9C%B0%E6%8E%88%E6%9D%83%E6%96%B9%E5%BC%8F/" class="nav-link">4、快速建立第一个 EC2 实例   本地授权方式</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../5%E3%80%81%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%8B%E7%AC%AC%E4%B8%80%E4%B8%AA%20EC2%20%E5%AE%9E%E4%BE%8B%20-%20EC2%E6%8E%88%E6%9D%83%E6%96%B9%E5%BC%8F.md/" class="nav-link">快速建立第一个 EC2 实例 - EC2授权方式</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../6%E3%80%81%E5%88%86%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86%20Terraform%20%E8%B5%84%E6%BA%90/" class="nav-link">6、分文件管理 Terraform 资源</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../7%E3%80%81tf%E8%AE%BE%E7%BD%AEEC2%E8%B5%84%E6%BA%90%E7%9A%84%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE/" class="nav-link">使用 EC2 用户数据</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">8、状态文件   "terraform.tfstate"</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../9%E3%80%81%E5%AE%9A%E4%B9%89%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F/" class="nav-link">9、定义引用变量</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../7%E3%80%81tf%E8%AE%BE%E7%BD%AEEC2%E8%B5%84%E6%BA%90%E7%9A%84%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../9%E3%80%81%E5%AE%9A%E4%B9%89%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#-terraformtfstate" class="nav-link">状态文件 - terraform.tfstate</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_1" class="nav-link">知识点</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">官网</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">说明讲解</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">强烈建议</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="-terraformtfstate">状态文件 - terraform.tfstate</h1>
+<h2 id="_1">知识点</h2>
+<ul>
+<li>Terraform 的状态文件 - terraform.tfstate</li>
+</ul>
+<h2 id="_2">官网</h2>
+<p>https://www.terraform.io/language/state</p>
+<h2 id="_3">说明讲解</h2>
+<h3 id="tfstate">tfstate 是什么？</h3>
+<p>.tfstate 文件是 Terraform 管理现有资源状态的文件。</p>
+<h3 id="tfstate_1">为什么要有 tfstate</h3>
+<p>每当执行 <code>terraform plan</code> 的时候， Terraform 都会为我们比较本地资源的变化和服务器资源的不同。</p>
+<p>这点和 CloudFormation 不一样， CloudFormation 是存在云端的。</p>
+<p>大家请想一个问题, 为什么我们可以通过 <code>terraform apply</code> 建立出的 EC2, 马上可以通过 <code>terraform destroy</code> 进行销毁呢？ </p>
+<p>Terraform 是怎么知道该销毁哪台 EC2 的? 会不会将云中的其他 EC2 销毁呢？ </p>
+<p>如果没有状态管理， 这就很危险。</p>
+<h3 id="terraformtfstate">terraform.tfstate文件的作用</h3>
+<ul>
+<li><em>terraform.tfstate</em>记录了<strong>当前tf管理的资源的状态</strong>。</li>
+<li>如果我们在此之前执行了<code>terraform destroy</code> 命令，把资源都销毁了，那么<em>terraform.tfstate</em>文件里面是看不到任何resources信息的，因为该文件记录的是当前的tf管理资源的状态。</li>
+<li>但是，Terraform为我们提供了上一次通过tf管理资源的<em>terraform.tfstate.backup</em>文件。</li>
+</ul>
+<h3 id="tfstate_2">一起来看一下 tfstate 文件样例</h3>
+<pre><code class="language-bash">$ cat terraform.tfstate
+</code></pre>
+<p><em>terraform.tfstate</em></p>
+<pre><code class="language-json">{
+  &quot;version&quot;: 4,
+  // 采用版本
+  &quot;terraform_version&quot;: &quot;1.1.4&quot;,
+  // 运行次数
+  &quot;serial&quot;: 9,
+  // 项目唯一ID。如果本地用tf管理多个项目，但是因为ID是唯一的，这会确保不同的tf不会影响到云端的同一个资源
+  &quot;lineage&quot;: &quot;a81e9642-ae12-9afc-ab52-1bb1ca1d5b66&quot;,
+  &quot;outputs&quot;: {},
+  &quot;resources&quot;: [
+    {
+      &quot;mode&quot;: &quot;managed&quot;,
+      // 资源类型
+      &quot;type&quot;: &quot;aws_instance&quot;,
+      // 资源名称(TF使用)
+      &quot;name&quot;: &quot;myweb_server2&quot;,
+      &quot;provider&quot;: &quot;provider[\&quot;registry.terraform.io/hashicorp/aws\&quot;]&quot;,
+      &quot;instances&quot;: [
+        {
+          &quot;schema_version&quot;: 1,
+          &quot;attributes&quot;: {
+            // AMI-ID
+            &quot;ami&quot;: &quot;ami-0218d08a1f9dac831&quot;,
+            // EC2 ARN
+            &quot;arn&quot;: &quot;arn:aws:ec2:ap-northeast-1:168571836196:instance/i-06f67dc122136c534&quot;,
+            // EC2 各种属性设置 ...
+            &quot;associate_public_ip_address&quot;: true,
+            &quot;availability_zone&quot;: &quot;ap-northeast-1a&quot;,
+            &quot;capacity_reservation_specification&quot;: [
+              {
+                &quot;capacity_reservation_preference&quot;: &quot;open&quot;,
+                &quot;capacity_reservation_target&quot;: []
+              }
+            ],
+            &quot;cpu_core_count&quot;: 1,
+            &quot;cpu_threads_per_core&quot;: 1,
+            &quot;credit_specification&quot;: [
+              {
+                &quot;cpu_credits&quot;: &quot;standard&quot;
+              }
+            ],
+            &quot;disable_api_termination&quot;: false,
+            &quot;ebs_block_device&quot;: [],
+            &quot;ebs_optimized&quot;: false,
+            &quot;enclave_options&quot;: [
+              {
+                &quot;enabled&quot;: false
+              }
+            ],
+            &quot;ephemeral_block_device&quot;: [],
+            &quot;get_password_data&quot;: false,
+            &quot;hibernation&quot;: false,
+            &quot;host_id&quot;: null,
+            &quot;iam_instance_profile&quot;: &quot;&quot;,
+            &quot;id&quot;: &quot;i-06f67dc122136c534&quot;,
+            &quot;instance_initiated_shutdown_behavior&quot;: &quot;stop&quot;,
+            &quot;instance_state&quot;: &quot;running&quot;,
+            &quot;instance_type&quot;: &quot;t2.micro&quot;,
+            &quot;ipv6_address_count&quot;: 0,
+            &quot;ipv6_addresses&quot;: [],
+            &quot;key_name&quot;: &quot;&quot;,
+            &quot;launch_template&quot;: [],
+            &quot;metadata_options&quot;: [
+              {
+                &quot;http_endpoint&quot;: &quot;enabled&quot;,
+                &quot;http_put_response_hop_limit&quot;: 1,
+                &quot;http_tokens&quot;: &quot;optional&quot;
+              }
+            ],
+            &quot;monitoring&quot;: false,
+            &quot;network_interface&quot;: [],
+            &quot;outpost_arn&quot;: &quot;&quot;,
+            &quot;password_data&quot;: &quot;&quot;,
+            &quot;placement_group&quot;: &quot;&quot;,
+            &quot;placement_partition_number&quot;: null,
+            &quot;primary_network_interface_id&quot;: &quot;eni-04777e6b3d682c7e8&quot;,
+            &quot;private_dns&quot;: &quot;ip-172-31-45-191.ap-northeast-1.compute.internal&quot;,
+            &quot;private_ip&quot;: &quot;172.31.45.191&quot;,
+            &quot;public_dns&quot;: &quot;ec2-13-231-129-70.ap-northeast-1.compute.amazonaws.com&quot;,
+            &quot;public_ip&quot;: &quot;13.231.129.70&quot;,
+            &quot;root_block_device&quot;: [
+              {
+                &quot;delete_on_termination&quot;: true,
+                &quot;device_name&quot;: &quot;/dev/xvda&quot;,
+                &quot;encrypted&quot;: false,
+                &quot;iops&quot;: 100,
+                &quot;kms_key_id&quot;: &quot;&quot;,
+                &quot;tags&quot;: {},
+                &quot;throughput&quot;: 0,
+                &quot;volume_id&quot;: &quot;vol-013199e72886ccebd&quot;,
+                &quot;volume_size&quot;: 8,
+                &quot;volume_type&quot;: &quot;gp2&quot;
+              }
+            ],
+            &quot;secondary_private_ips&quot;: [],
+            &quot;security_groups&quot;: [
+              &quot;default&quot;
+            ],
+            &quot;source_dest_check&quot;: true,
+            &quot;subnet_id&quot;: &quot;subnet-0647f7f6ae12f3d59&quot;,
+            &quot;tags&quot;: {
+              &quot;Name&quot;: &quot;learnaws-ec2-from-terraform2&quot;
+            },
+            &quot;tags_all&quot;: {
+              &quot;Name&quot;: &quot;learnaws-ec2-from-terraform2&quot;
+            },
+            &quot;tenancy&quot;: &quot;default&quot;,
+            &quot;timeouts&quot;: null,
+            &quot;user_data&quot;: &quot;4d496b03906764122c3ddb6f8bba0bddb432ec11&quot;,
+            &quot;user_data_base64&quot;: null,
+            &quot;volume_tags&quot;: null,
+            &quot;vpc_security_group_ids&quot;: [
+              &quot;sg-0e114289b84c9418a&quot;
+            ]
+          },
+          &quot;sensitive_attributes&quot;: [],
+          &quot;private&quot;: &quot;eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjEifQ==&quot;
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2 id="_4">强烈建议</h2>
+<ul>
+<li>在进行源代码管理时，务必把<em>terraform.tfstate</em>文件也管理进去。</li>
+<li>因为一旦<em>terraform.tfstate</em>文件丢失，tf就不知道该管理哪些资源</li>
+<li><em>terraform.tfstate</em>虽然是自动生成自动维护，但确是使用tf管理云资源最最重要的文件，一定不可以丢失。</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

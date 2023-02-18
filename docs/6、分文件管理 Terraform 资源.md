@@ -16,7 +16,7 @@
 
 *main.tf*
 
-```bash
+```terraform
 ###########################################################
 # Terraform 基本设置
 terraform {
@@ -45,7 +45,7 @@ $ vi ec2.tf
 
 *ec2.tf*
 
-```bash
+```terraform
 ###########################################################
 # EC2 资源设置
 resource "aws_instance" "myweb_server2" {

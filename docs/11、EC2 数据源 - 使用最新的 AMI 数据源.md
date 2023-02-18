@@ -35,7 +35,7 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/a
 
 *ec2-variables.tf*
 
-```bash
+```terraform
 # AWS Region
 variable "aws_region" {
   description = "AWS Region"
@@ -55,7 +55,7 @@ variable "instance_type" {
 
 *ec2-aws_ami.tf*
 
-```bash
+```terraform
 data "aws_ami" "myami" {
   # 最新使用
   most_recent = true
@@ -80,7 +80,7 @@ data "aws_ami" "myami" {
 
 *ec2-sg.tf*
 
-```bash
+```terraform
 # Create Security Group
 resource "aws_security_group" "learnaws-sg-web-ssh" {
   # 安全组的名称
@@ -128,7 +128,7 @@ resource "aws_security_group" "learnaws-sg-web-ssh" {
 
 *ec2.tf*
 
-```bash
+```terraform
 ###########################################################
 # EC2 资源设置
 resource "aws_instance" "myweb_server2" {
@@ -147,7 +147,7 @@ resource "aws_instance" "myweb_server2" {
 
 *main.tf*
 
-```bash
+```terraform
 ###########################################################
 # Terraform 基本设置
 terraform {

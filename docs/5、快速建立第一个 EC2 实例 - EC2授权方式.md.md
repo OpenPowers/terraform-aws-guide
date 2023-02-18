@@ -14,9 +14,9 @@
 
 ### 准备 tf 模版
 
-*main.ts*
+*main.tf*
 
-```bash
+```terraform
 ###########################################################
 # Terraform 基本设置
 terraform {

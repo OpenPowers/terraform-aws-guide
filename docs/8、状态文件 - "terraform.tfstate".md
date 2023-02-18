@@ -168,6 +168,6 @@ $ cat terraform.tfstate
 
 ## 强烈建议
 
-* 在进行源代码管理时，务必把*terraform.tfstate*文件也管理进去。
-* 因为一旦*terraform.tfstate*文件丢失，tf就不知道该管理哪些资源
-* *terraform.tfstate*虽然是自动生成自动维护，但确是使用tf管理云资源最最重要的文件，一定不可以丢失。
+* 在进行源代码管理时，务必把_terraform.tfstate_文件也管理进去。
+* 因为一旦_terraform.tfstate_文件丢失，tf就不知道该管理哪些资源
+* _terraform.tfstate_虽然是自动生成自动维护，但确是使用tf管理云资源最最重要的文件，一定不可以丢失。

@@ -29,7 +29,7 @@
 
 *ec2-userdata.sh*
 
-```bash
+```sh
 #!/bin/bash
 yum update -y
 # 设置ec2区域
@@ -56,7 +56,7 @@ sudo echo '<h1>Terraform EC2.</h1>' | sudo tee /var/www/html/index.html
 
 *ec2.tf*
 
-```bash
+```terraform
 ###########################################################
 # EC2 资源设置
 resource "aws_instance" "myweb_server2" {
@@ -76,7 +76,7 @@ resource "aws_instance" "myweb_server2" {
 
 *main.tf*
 
-```bash
+```terraform
 ###########################################################
 # Terraform 基本设置
 terraform {

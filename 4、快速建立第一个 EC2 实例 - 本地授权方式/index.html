@@ -51,6 +51,18 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-HQ4D5M7YWG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-HQ4D5M7YWG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-HQ4D5M7YWG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -691,138 +703,78 @@
 </ul>
 <h2 id="_4">操作步骤<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="terraform-tf">建立本地 Terraform 文件, (简称 tf 文件)<a class="headerlink" href="#terraform-tf" title="Permanent link">&para;</a></h3>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>$<span style="color: #f8f8f8"> </span>mkdir<span style="color: #f8f8f8"> </span>awstf
-$<span style="color: #f8f8f8"> </span><span style="color: #204a87">cd</span><span style="color: #f8f8f8"> </span>awstf
-$<span style="color: #f8f8f8"> </span>vim<span style="color: #f8f8f8"> </span>main.tf
-</code></pre></div></td></tr></table></div>
-
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>awstf
+$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>awstf
+$<span class="w"> </span>vim<span class="w"> </span>main.tf
+</code></pre></div>
 <p><em>main.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic">###########################################################</span>
-<span style="color: #8f5902; font-style: italic"># Terraform 基本设置</span>
-terraform<span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 声明provider</span>
-<span style="color: #f8f8f8">  </span>required_providers<span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/browse/providers</span>
-<span style="color: #f8f8f8">    </span><span style="color: #000000">aws</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87">source</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;hashicorp/aws&quot;</span>
-<span style="color: #f8f8f8">      </span><span style="color: #000000">version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;~&gt; 3.74&quot;</span>
-<span style="color: #f8f8f8">    </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 声明Terraform版本</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">required_version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;&gt;= 1.1.4&quot;</span>
-<span style="color: #ce5c00; font-weight: bold">}</span>
+<div class="highlight"><pre><span></span><code><span class="c1">###########################################################</span>
+<span class="c1"># Terraform 基本设置</span>
+terraform<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># 声明provider</span>
+<span class="w">  </span>required_providers<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># https://registry.terraform.io/browse/providers</span>
+<span class="w">    </span><span class="nv">aws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="nb">source</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hashicorp/aws&quot;</span>
+<span class="w">      </span><span class="nv">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;~&gt; 3.74&quot;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="w">    </span><span class="c1"># 声明Terraform版本</span>
+<span class="w">  </span><span class="nv">required_version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;&gt;= 1.1.4&quot;</span>
+<span class="o">}</span>
 
-<span style="color: #8f5902; font-style: italic">###########################################################</span>
-<span style="color: #8f5902; font-style: italic"># 提供商设置(云平台)</span>
-<span style="color: #8f5902; font-style: italic"># 描述AWS Provider</span>
-<span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/providers/hashicorp/aws/latest</span>
-provider<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># ~/.aws/credentials文件的[name]</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">profile</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws&quot;</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">region</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ap-northeast-1&quot;</span>
-<span style="color: #ce5c00; font-weight: bold">}</span>
+<span class="c1">###########################################################</span>
+<span class="c1"># 提供商设置(云平台)</span>
+<span class="c1"># 描述AWS Provider</span>
+<span class="c1"># https://registry.terraform.io/providers/hashicorp/aws/latest</span>
+provider<span class="w"> </span><span class="s2">&quot;aws&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># ~/.aws/credentials文件的[name]</span>
+<span class="w">  </span><span class="nv">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;learnaws&quot;</span>
+<span class="w">  </span><span class="nv">region</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ap-northeast-1&quot;</span>
+<span class="o">}</span>
 
-<span style="color: #8f5902; font-style: italic">###########################################################</span>
-<span style="color: #8f5902; font-style: italic"># 描述要生成的资源设置</span>
-<span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami</span>
-<span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance</span>
-resource<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws_instance&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;myweb_server&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">ami</span><span style="color: #f8f8f8">           </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ami-0218d08a1f9dac831&quot;</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">instance_type</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;t3.micro&quot;</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">tags</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">    </span><span style="color: #000000">Name</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws-ec2-from-terraform&quot;</span>
-<span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<span style="color: #ce5c00; font-weight: bold">}</span>
-</code></pre></div></td></tr></table></div>
-
+<span class="c1">###########################################################</span>
+<span class="c1"># 描述要生成的资源设置</span>
+<span class="c1"># https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami</span>
+<span class="c1"># https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance</span>
+resource<span class="w"> </span><span class="s2">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s2">&quot;myweb_server&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ami-0218d08a1f9dac831&quot;</span>
+<span class="w">  </span><span class="nv">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;t3.micro&quot;</span>
+<span class="w">  </span><span class="nv">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="nv">Name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;learnaws-ec2-from-terraform&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
 <h3 id="terraform">遵循 Terraform 工作流程完成资源部署<a class="headerlink" href="#terraform" title="Permanent link">&para;</a></h3>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic"># 目录初始化（会现在必要的安装包和provider）</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>init
-<span style="color: #8f5902; font-style: italic"># 确认提供商管理文件, 该文件记录具体的提供商版本信息, 应该包含到源代码信息库中</span>
-$<span style="color: #f8f8f8"> </span>ls<span style="color: #f8f8f8"> </span>-a
-$<span style="color: #f8f8f8"> </span>cat<span style="color: #f8f8f8"> </span>.terraform.lock.hcl
+<div class="highlight"><pre><span></span><code><span class="c1"># 目录初始化（会现在必要的安装包和provider）</span>
+$<span class="w"> </span>terraform<span class="w"> </span>init
+<span class="c1"># 确认提供商管理文件, 该文件记录具体的提供商版本信息, 应该包含到源代码信息库中</span>
+$<span class="w"> </span>ls<span class="w"> </span>-a
+$<span class="w"> </span>cat<span class="w"> </span>.terraform.lock.hcl
 
-<span style="color: #8f5902; font-style: italic"># 检验 tf 文件</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>validate
+<span class="c1"># 检验 tf 文件</span>
+$<span class="w"> </span>terraform<span class="w"> </span>validate
 
-<span style="color: #8f5902; font-style: italic"># 实施计划, 准备资源</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>plan
+<span class="c1"># 实施计划, 准备资源</span>
+$<span class="w"> </span>terraform<span class="w"> </span>plan
 ...
-&gt;Plan:<span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">1</span><span style="color: #f8f8f8"> </span>to<span style="color: #f8f8f8"> </span>add,<span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">0</span><span style="color: #f8f8f8"> </span>to<span style="color: #f8f8f8"> </span>change,<span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">0</span><span style="color: #f8f8f8"> </span>to<span style="color: #f8f8f8"> </span>destroy.
+&gt;Plan:<span class="w"> </span><span class="m">1</span><span class="w"> </span>to<span class="w"> </span>add,<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span>change,<span class="w"> </span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span>destroy.
 
-<span style="color: #8f5902; font-style: italic"># 应用部署</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>apply
+<span class="c1"># 应用部署</span>
+$<span class="w"> </span>terraform<span class="w"> </span>apply
 ...
-&gt;Apply<span style="color: #f8f8f8"> </span>complete!<span style="color: #f8f8f8"> </span>Resources:<span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">1</span><span style="color: #f8f8f8"> </span>added,<span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">0</span><span style="color: #f8f8f8"> </span>changed,<span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">0</span><span style="color: #f8f8f8"> </span>destroyed.
+&gt;Apply<span class="w"> </span>complete!<span class="w"> </span>Resources:<span class="w"> </span><span class="m">1</span><span class="w"> </span>added,<span class="w"> </span><span class="m">0</span><span class="w"> </span>changed,<span class="w"> </span><span class="m">0</span><span class="w"> </span>destroyed.
 
-<span style="color: #8f5902; font-style: italic"># 摧毁系统，即把当前tf脚本描述的所有资源全部摧毁</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>destroy
+<span class="c1"># 摧毁系统，即把当前tf脚本描述的所有资源全部摧毁</span>
+$<span class="w"> </span>terraform<span class="w"> </span>destroy
 ...
-&gt;Destroy<span style="color: #f8f8f8"> </span>complete!<span style="color: #f8f8f8"> </span>Resources:<span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">1</span><span style="color: #f8f8f8"> </span>destroyed.
-</code></pre></div></td></tr></table></div>
-
+&gt;Destroy<span class="w"> </span>complete!<span class="w"> </span>Resources:<span class="w"> </span><span class="m">1</span><span class="w"> </span>destroyed.
+</code></pre></div>
 <h3 id="_5">动作确认<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>Done.</p>
 
+
+  
 
 
 

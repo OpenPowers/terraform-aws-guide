@@ -49,6 +49,18 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-HQ4D5M7YWG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-HQ4D5M7YWG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-HQ4D5M7YWG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -710,120 +722,72 @@
 <h2 id="_4">操作步骤<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">建立可用区数据源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p><em>ec2-aws_availability_zones.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic"># 取得已启用的可用区资源</span>
-data<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws_availability_zones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;deeplearnaws_azones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">  </span>filter<span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 区域状态</span>
-<span style="color: #f8f8f8">    </span><span style="color: #000000">name</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;opt-in-status&quot;</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># opt-in-not-required: 已启用区域</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># not-opted-in:        未启用区域</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># opted-in:            启用选择加入的区域</span>
-<span style="color: #f8f8f8">    </span><span style="color: #000000">values</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">[</span><span style="color: #4e9a06">&quot;opt-in-not-required&quot;</span><span style="color: #ce5c00; font-weight: bold">]</span>
-<span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<span style="color: #ce5c00; font-weight: bold">}</span>
-</code></pre></div></td></tr></table></div>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># 取得已启用的可用区资源</span>
+data<span class="w"> </span><span class="s2">&quot;aws_availability_zones&quot;</span><span class="w"> </span><span class="s2">&quot;deeplearnaws_azones&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span>filter<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># 区域状态</span>
+<span class="w">    </span><span class="nv">name</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;opt-in-status&quot;</span>
+<span class="w">    </span><span class="c1"># opt-in-not-required: 已启用区域</span>
+<span class="w">    </span><span class="c1"># not-opted-in:        未启用区域</span>
+<span class="w">    </span><span class="c1"># opted-in:            启用选择加入的区域</span>
+<span class="w">    </span><span class="nv">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="s2">&quot;opt-in-not-required&quot;</span><span class="o">]</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
 <p><em>管理 AWS 区域 - 参照网页</em></p>
 <p><a href="https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande-manage.html">https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande-manage.html</a></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>$<span style="color: #f8f8f8"> </span>aws<span style="color: #f8f8f8"> </span>ec2<span style="color: #f8f8f8"> </span>describe-regions<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<span style="color: #f8f8f8">    </span>--all-regions<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<span style="color: #f8f8f8">    </span>--query<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Regions[].[RegionName, OptInStatus]&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<span style="color: #f8f8f8">    </span>--output<span style="color: #f8f8f8"> </span>table<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<span style="color: #f8f8f8">    </span>--profile<span style="color: #f8f8f8"> </span>deeplearnaws<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<span style="color: #f8f8f8">    </span>--region<span style="color: #f8f8f8"> </span>ap-northeast-1
-</code></pre></div></td></tr></table></div>
-
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-regions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--all-regions<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--query<span class="w"> </span><span class="s2">&quot;Regions[].[RegionName, OptInStatus]&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="w"> </span>table<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--profile<span class="w"> </span>deeplearnaws<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--region<span class="w"> </span>ap-northeast-1
+</code></pre></div>
 <h4 id="_6">输出可用区一览<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p><em>ec2-outputs.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>output<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;deeplearnaws_azones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">  </span><span style="color: #8f5902; font-style: italic"># 输出可用区一览</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">value</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>data.aws_availability_zones.deeplearnaws_azones.names
-<span style="color: #ce5c00; font-weight: bold">}</span>
+<div class="highlight"><pre><span></span><code>output<span class="w"> </span><span class="s2">&quot;deeplearnaws_azones&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="c1"># 输出可用区一览</span>
+<span class="w">  </span><span class="nv">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>data.aws_availability_zones.deeplearnaws_azones.names
+<span class="o">}</span>
 
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>plan
-</code></pre></div></td></tr></table></div>
-
+$<span class="w"> </span>terraform<span class="w"> </span>plan
+</code></pre></div>
 <h3 id="ec2_1">在 EC2 资源描述中应用可用区数据源<a class="headerlink" href="#ec2_1" title="Permanent link">&para;</a></h3>
 <p><em>ec2.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic">###########################################################</span>
-<span style="color: #8f5902; font-style: italic"># EC2 资源设置</span>
-resource<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws_instance&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;myweb_server2&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">ami</span><span style="color: #f8f8f8">                    </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>data.aws_ami.komaami.id
-<span style="color: #f8f8f8">  </span><span style="color: #000000">instance_type</span><span style="color: #f8f8f8">          </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>var.instance_type_env<span style="color: #ce5c00; font-weight: bold">[</span><span style="color: #4e9a06">&quot;dev&quot;</span><span style="color: #ce5c00; font-weight: bold">]</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">vpc_security_group_ids</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">[</span>aws_security_group.deeplearnaws-sg-web-ssh.id<span style="color: #ce5c00; font-weight: bold">]</span>
+<div class="highlight"><pre><span></span><code><span class="c1">###########################################################</span>
+<span class="c1"># EC2 资源设置</span>
+resource<span class="w"> </span><span class="s2">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s2">&quot;myweb_server2&quot;</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">ami</span><span class="w">                    </span><span class="o">=</span><span class="w"> </span>data.aws_ami.komaami.id
+<span class="w">  </span><span class="nv">instance_type</span><span class="w">          </span><span class="o">=</span><span class="w"> </span>var.instance_type_env<span class="o">[</span><span class="s2">&quot;dev&quot;</span><span class="o">]</span>
+<span class="w">  </span><span class="nv">vpc_security_group_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>aws_security_group.deeplearnaws-sg-web-ssh.id<span class="o">]</span>
 
-<span style="color: #f8f8f8">  </span><span style="color: #8f5902; font-style: italic"># 循环可用区数据源</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">for_each</span><span style="color: #f8f8f8">          </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>toset<span style="color: #ce5c00; font-weight: bold">(</span>data.aws_availability_zones.deeplearnaws_azones.names<span style="color: #ce5c00; font-weight: bold">)</span>
-<span style="color: #f8f8f8">  </span><span style="color: #8f5902; font-style: italic"># 取得数据源赋予可用区属性</span>
-<span style="color: #f8f8f8">  </span><span style="color: #000000">availability_zone</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>each.key
-<span style="color: #f8f8f8">  </span><span style="color: #000000">tags</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 赋予 tagName 标签</span>
-<span style="color: #f8f8f8">    </span><span style="color: #4e9a06">&quot;Name&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;deeplearnaws-tf-ec2-${</span><span style="color: #000000">each</span><span style="color: #000000; font-weight: bold">.key</span><span style="color: #4e9a06">}&quot;</span>
-<span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<span style="color: #ce5c00; font-weight: bold">}</span>
-</code></pre></div></td></tr></table></div>
-
+<span class="w">  </span><span class="c1"># 循环可用区数据源</span>
+<span class="w">  </span><span class="nv">for_each</span><span class="w">          </span><span class="o">=</span><span class="w"> </span>toset<span class="o">(</span>data.aws_availability_zones.deeplearnaws_azones.names<span class="o">)</span>
+<span class="w">  </span><span class="c1"># 取得数据源赋予可用区属性</span>
+<span class="w">  </span><span class="nv">availability_zone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>each.key
+<span class="w">  </span><span class="nv">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="c1"># 赋予 tagName 标签</span>
+<span class="w">    </span><span class="s2">&quot;Name&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;deeplearnaws-tf-ec2-</span><span class="si">${</span><span class="nv">each</span><span class="p">.key</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
 <h3 id="_7">运行模版确认动作<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic"># 目录初始化</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>init
-<span style="color: #8f5902; font-style: italic"># 检验 tf 文件</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>validate
-<span style="color: #8f5902; font-style: italic"># 实施计划, 准备资源</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>plan
-<span style="color: #8f5902; font-style: italic"># 应用部署</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>apply
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>apply<span style="color: #f8f8f8"> </span>-auto-approve
-<span style="color: #8f5902; font-style: italic"># 摧毁系统</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>destroy
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>destroy<span style="color: #f8f8f8"> </span>-auto-approve
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 目录初始化</span>
+$<span class="w"> </span>terraform<span class="w"> </span>init
+<span class="c1"># 检验 tf 文件</span>
+$<span class="w"> </span>terraform<span class="w"> </span>validate
+<span class="c1"># 实施计划, 准备资源</span>
+$<span class="w"> </span>terraform<span class="w"> </span>plan
+<span class="c1"># 应用部署</span>
+$<span class="w"> </span>terraform<span class="w"> </span>apply
+$<span class="w"> </span>terraform<span class="w"> </span>apply<span class="w"> </span>-auto-approve
+<span class="c1"># 摧毁系统</span>
+$<span class="w"> </span>terraform<span class="w"> </span>destroy
+$<span class="w"> </span>terraform<span class="w"> </span>destroy<span class="w"> </span>-auto-approve
+</code></pre></div>
 
+
+  
 
 
 

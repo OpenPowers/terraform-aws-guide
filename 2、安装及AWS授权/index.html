@@ -51,6 +51,18 @@
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-HQ4D5M7YWG"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-HQ4D5M7YWG",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-HQ4D5M7YWG",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
     
     
@@ -667,91 +679,52 @@
 <h3 id="_4">从官网下载安装<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><a href="https://releases.hashicorp.com/terraform/">https://releases.hashicorp.com/terraform/</a></p>
 <p>这里选择：<code>terraform_1.3.8_darwin_amd64.zip</code></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code>$<span style="color: #f8f8f8"> </span>unzip<span style="color: #f8f8f8"> </span>terraform_x.xx.x_darwin_amd64.zip
-$<span style="color: #f8f8f8"> </span>mv<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>/usr/local/bin
-</code></pre></div></td></tr></table></div>
-
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>unzip<span class="w"> </span>terraform_x.xx.x_darwin_amd64.zip
+$<span class="w"> </span>mv<span class="w"> </span>terraform<span class="w"> </span>/usr/local/bin
+</code></pre></div>
 <h3 id="macos-terraform-cli">在 macOS 上安装 Terraform CLI 命令行工具<a class="headerlink" href="#macos-terraform-cli" title="Permanent link">&para;</a></h3>
 <p><a href="https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started">https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started</a></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic">#######################################</span>
-<span style="color: #8f5902; font-style: italic"># 使用 Homebrew 安装 Terraform CLI</span>
-$<span style="color: #f8f8f8"> </span>brew<span style="color: #f8f8f8"> </span>tap<span style="color: #f8f8f8"> </span>hashicorp/tap<span style="color: #f8f8f8">                                </span><span style="color: #8f5902; font-style: italic"># 注册hashicorp信息库</span>
-$<span style="color: #f8f8f8"> </span>brew<span style="color: #f8f8f8"> </span>install<span style="color: #f8f8f8"> </span>hashicorp/tap/terraform<span style="color: #f8f8f8">  </span><span style="color: #8f5902; font-style: italic"># 安装terraform</span>
-<span style="color: #8f5902; font-style: italic"># 确认安装</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-help
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>version
-<span style="color: #8f5902; font-style: italic"># 各种子命令确认</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-help<span style="color: #f8f8f8"> </span>init<span style="color: #f8f8f8">                                  </span><span style="color: #8f5902; font-style: italic"># 初始化</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-help<span style="color: #f8f8f8"> </span>validate<span style="color: #f8f8f8">                          </span><span style="color: #8f5902; font-style: italic"># 验证Terraform配置文件的语法是否正确</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-help<span style="color: #f8f8f8"> </span>plan<span style="color: #f8f8f8">                                  </span><span style="color: #8f5902; font-style: italic"># </span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-help<span style="color: #f8f8f8"> </span>apply
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-help<span style="color: #f8f8f8"> </span>destroy
+<div class="highlight"><pre><span></span><code><span class="c1">#######################################</span>
+<span class="c1"># 使用 Homebrew 安装 Terraform CLI</span>
+$<span class="w"> </span>brew<span class="w"> </span>tap<span class="w"> </span>hashicorp/tap<span class="w">                                </span><span class="c1"># 注册hashicorp信息库</span>
+$<span class="w"> </span>brew<span class="w"> </span>install<span class="w"> </span>hashicorp/tap/terraform<span class="w">  </span><span class="c1"># 安装terraform</span>
+<span class="c1"># 确认安装</span>
+$<span class="w"> </span>terraform<span class="w"> </span>-help
+$<span class="w"> </span>terraform<span class="w"> </span>version
+<span class="c1"># 各种子命令确认</span>
+$<span class="w"> </span>terraform<span class="w"> </span>-help<span class="w"> </span>init<span class="w">                                  </span><span class="c1"># 初始化</span>
+$<span class="w"> </span>terraform<span class="w"> </span>-help<span class="w"> </span>validate<span class="w">                          </span><span class="c1"># 验证Terraform配置文件的语法是否正确</span>
+$<span class="w"> </span>terraform<span class="w"> </span>-help<span class="w"> </span>plan<span class="w">                                  </span><span class="c1"># </span>
+$<span class="w"> </span>terraform<span class="w"> </span>-help<span class="w"> </span>apply
+$<span class="w"> </span>terraform<span class="w"> </span>-help<span class="w"> </span>destroy
 
-<span style="color: #8f5902; font-style: italic">#######################################</span>
-<span style="color: #8f5902; font-style: italic"># Homebrew 本体更新</span>
-$<span style="color: #f8f8f8"> </span>brew<span style="color: #f8f8f8"> </span>update
-<span style="color: #8f5902; font-style: italic"># 更新 Terraform CLI</span>
-$<span style="color: #f8f8f8"> </span>brew<span style="color: #f8f8f8"> </span>upgrade<span style="color: #f8f8f8"> </span>hashicorp/tap/terraform
+<span class="c1">#######################################</span>
+<span class="c1"># Homebrew 本体更新</span>
+$<span class="w"> </span>brew<span class="w"> </span>update
+<span class="c1"># 更新 Terraform CLI</span>
+$<span class="w"> </span>brew<span class="w"> </span>upgrade<span class="w"> </span>hashicorp/tap/terraform
 
-<span style="color: #8f5902; font-style: italic">#######################################</span>
-<span style="color: #8f5902; font-style: italic"># Tab 自动完成(可选安装, 有安全隐患, 可跳过)</span>
-<span style="color: #8f5902; font-style: italic">## Bash 的场合</span>
-<span style="color: #8f5902; font-style: italic"># $ touch ~/.bashrc</span>
-<span style="color: #8f5902; font-style: italic">## Zsh  的场合</span>
-$<span style="color: #f8f8f8"> </span>touch<span style="color: #f8f8f8"> </span>~/.zshrc
-<span style="color: #8f5902; font-style: italic"># 安装 Terraform 自动完成包</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-install-autocomplete
-</code></pre></div></td></tr></table></div>
-
+<span class="c1">#######################################</span>
+<span class="c1"># Tab 自动完成(可选安装, 有安全隐患, 可跳过)</span>
+<span class="c1">## Bash 的场合</span>
+<span class="c1"># $ touch ~/.bashrc</span>
+<span class="c1">## Zsh  的场合</span>
+$<span class="w"> </span>touch<span class="w"> </span>~/.zshrc
+<span class="c1"># 安装 Terraform 自动完成包</span>
+$<span class="w"> </span>terraform<span class="w"> </span>-install-autocomplete
+</code></pre></div>
 <p><a href="https://brew.sh/">macos系统的Homebrew包管理工具官网</a></p>
 <h3 id="linux-terraform-cli">在 Linux 上安装 Terraform CLI 命令行工具<a class="headerlink" href="#linux-terraform-cli" title="Permanent link">&para;</a></h3>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">9</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic"># 安装 yum 管理工具 - yum-config-manager</span>
-$<span style="color: #f8f8f8"> </span>sudo<span style="color: #f8f8f8"> </span>yum<span style="color: #f8f8f8"> </span>install<span style="color: #f8f8f8"> </span>-y<span style="color: #f8f8f8"> </span>yum-utils
-<span style="color: #8f5902; font-style: italic"># 注册 HashiCorp 信息库</span>
-$<span style="color: #f8f8f8"> </span>sudo<span style="color: #f8f8f8"> </span>yum-config-manager<span style="color: #f8f8f8"> </span>--add-repo<span style="color: #f8f8f8"> </span>https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-<span style="color: #8f5902; font-style: italic"># 安装 terraform</span>
-$<span style="color: #f8f8f8"> </span>sudo<span style="color: #f8f8f8"> </span>yum<span style="color: #f8f8f8"> </span>-y<span style="color: #f8f8f8"> </span>install<span style="color: #f8f8f8"> </span>terraform
-<span style="color: #8f5902; font-style: italic"># 确认安装</span>
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>-help
-$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>version
-</code></pre></div></td></tr></table></div>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># 安装 yum 管理工具 - yum-config-manager</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>yum-utils
+<span class="c1"># 注册 HashiCorp 信息库</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yum-config-manager<span class="w"> </span>--add-repo<span class="w"> </span>https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+<span class="c1"># 安装 terraform</span>
+$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>terraform
+<span class="c1"># 确认安装</span>
+$<span class="w"> </span>terraform<span class="w"> </span>-help
+$<span class="w"> </span>terraform<span class="w"> </span>version
+</code></pre></div>
 <h1 id="aws-cli">二、AWS CLI 命令行工具安装及设置<a class="headerlink" href="#aws-cli" title="Permanent link">&para;</a></h1>
 <h2 id="_5">实战演习/说明讲解<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
@@ -768,15 +741,11 @@ $<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </s
 <li>macOS</li>
 <li>Windows</li>
 </ul>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">4</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #8f5902; font-style: italic"># 版本确认</span>
-$<span style="color: #f8f8f8"> </span>aws<span style="color: #f8f8f8"> </span>--version
-<span style="color: #8f5902; font-style: italic"># 确认本地授权文件</span>
-$<span style="color: #f8f8f8"> </span>cat<span style="color: #f8f8f8"> </span>~/.aws/credentials
-</code></pre></div></td></tr></table></div>
-
+<div class="highlight"><pre><span></span><code><span class="c1"># 版本确认</span>
+$<span class="w"> </span>aws<span class="w"> </span>--version
+<span class="c1"># 确认本地授权文件</span>
+$<span class="w"> </span>cat<span class="w"> </span>~/.aws/credentials
+</code></pre></div>
 <h3 id="-">设置授权（方式一） - 本地授权<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
@@ -792,202 +761,115 @@ $<span style="color: #f8f8f8"> </span>cat<span style="color: #f8f8f8"> </span>~/
 <p>授权CLI身份</p>
 </li>
 </ul>
-<p>```bash
-  # 授权CLI身份(指定profile方式 - AWS Best Practices)
-  $ aws configure --profile learnaws</p>
-<blockquote>
-<p>AWS Access Key ID [None]: FFUff89898u89vxv
-  AWS Secret Access Key [None]: Ahy789yvhjxlFDoajsdflajia90sdfjsaa
-Default region name [None]: ap-northeast-1
-  Default output format [None]: json
-  # 授权身份存储位置(******内容涉及敏感信息******)
-  $ ls ~/.aws
-  # 列出所有配置数据
-  $ aws configure list --profile learnaws
-  # 列出可用配置文件名称
-  $ aws configure list-profiles
-  # 列出当前区的VPC
-  $ aws ec2 describe-vpcs --profile learnaws
-  # 查询过滤显示
-  $ aws ec2 describe-vpcs --profile learnaws --query 'Vpcs[].VpcId'
-  # 列出S3存储桶
-  $ aws s3 ls --profile learnaws
-  ```</p>
-</blockquote>
-<p><code>bash
-  # 此命令来验证您的 AWS 访问密钥是否正确，以及您是否已获得必要的 AWS 资源访问权限。如果该命令返回您的身份信息(账户ID、用户ID、ARN)，表示您已通过身份验证，并且可以在 AWS 上执行其他操作。如果出现错误，说明您的访问密钥无效或您没有必要的 AWS 资源访问权限。
-  $ aws sts get-caller-identity</code></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 授权CLI身份(指定profile方式 - AWS Best Practices)</span>
+$<span class="w"> </span>aws<span class="w"> </span>configure<span class="w"> </span>--profile<span class="w"> </span>learnaws
+&gt;AWS<span class="w"> </span>Access<span class="w"> </span>Key<span class="w"> </span>ID<span class="w"> </span><span class="o">[</span>None<span class="o">]</span>:<span class="w"> </span>FFUff89898u89vxv
+AWS<span class="w"> </span>Secret<span class="w"> </span>Access<span class="w"> </span>Key<span class="w"> </span><span class="o">[</span>None<span class="o">]</span>:<span class="w"> </span>Ahy789yvhjxlFDoajsdflajia90sdfjsaa
+&gt;Default<span class="w"> </span>region<span class="w"> </span>name<span class="w"> </span><span class="o">[</span>None<span class="o">]</span>:<span class="w"> </span>ap-northeast-1
+Default<span class="w"> </span>output<span class="w"> </span>format<span class="w"> </span><span class="o">[</span>None<span class="o">]</span>:<span class="w"> </span>json
+<span class="c1"># 授权身份存储位置(******内容涉及敏感信息******)</span>
+$<span class="w"> </span>ls<span class="w"> </span>~/.aws
+<span class="c1"># 列出所有配置数据</span>
+$<span class="w"> </span>aws<span class="w"> </span>configure<span class="w"> </span>list<span class="w"> </span>--profile<span class="w"> </span>learnaws
+<span class="c1"># 列出可用配置文件名称</span>
+$<span class="w"> </span>aws<span class="w"> </span>configure<span class="w"> </span>list-profiles
+<span class="c1"># 列出当前区的VPC</span>
+$<span class="w"> </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-vpcs<span class="w"> </span>--profile<span class="w"> </span>learnaws
+<span class="c1"># 查询过滤显示</span>
+$<span class="w"> </span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-vpcs<span class="w"> </span>--profile<span class="w"> </span>learnaws<span class="w"> </span>--query<span class="w"> </span><span class="s1">&#39;Vpcs[].VpcId&#39;</span>
+<span class="c1"># 列出S3存储桶</span>
+$<span class="w"> </span>aws<span class="w"> </span>s3<span class="w"> </span>ls<span class="w"> </span>--profile<span class="w"> </span>learnaws
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 此命令来验证您的 AWS 访问密钥是否正确，以及您是否已获得必要的 AWS 资源访问权限。如果该命令返回您的身份信息(账户ID、用户ID、ARN)，表示您已通过身份验证，并且可以在 AWS 上执行其他操作。如果出现错误，说明您的访问密钥无效或您没有必要的 AWS 资源访问权限。</span>
+$<span class="w"> </span>aws<span class="w"> </span>sts<span class="w"> </span>get-caller-identity
+</code></pre></div>
 <h3 id="-ec2">设置授权（方式二） - 给EC2进行角色授权<a class="headerlink" href="#-ec2" title="Permanent link">&para;</a></h3>
 <p>使用下面的AWS CloudFormation 模版*awsNodeJSEC2.yml*，已经设置好 EC2 权限</p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 1</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 2</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 3</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 4</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 5</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 6</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 7</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 8</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"> 9</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">10</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">11</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">12</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">13</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">14</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">15</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">16</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">17</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">18</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">19</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">20</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">21</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">22</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">23</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">24</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">25</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">26</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">27</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">28</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">29</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">30</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">31</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">32</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">33</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">34</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">35</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">36</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">37</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">38</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">39</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">40</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">41</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">42</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">43</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">44</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">45</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">46</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">47</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">48</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">49</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">50</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">51</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">52</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">53</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">54</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">55</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">56</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">57</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">58</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">59</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">60</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">61</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">62</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">63</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">64</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">65</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">66</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">67</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">68</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">69</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">70</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">71</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">72</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">73</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">74</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">75</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">76</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">77</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">78</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">79</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">80</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">81</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">82</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">83</span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;">84</span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><span style="color: #204a87; font-weight: bold">Parameters</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">  </span><span style="color: #204a87; font-weight: bold">MyKeyName</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Description</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">Name of EC2 KeyPair</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Type</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">AWS::EC2::KeyPair::KeyName</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Default</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">learn-aws-ssh-key</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">ConstraintDescription</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">must input</span>
+<div class="highlight"><pre><span></span><code><span class="nt">Parameters</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">MyKeyName</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name of EC2 KeyPair</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::EC2::KeyPair::KeyName</span>
+<span class="w">    </span><span class="nt">Default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">learn-aws-ssh-key</span>
+<span class="w">    </span><span class="nt">ConstraintDescription</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">must input</span>
 
-<span style="color: #204a87; font-weight: bold">Resources</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">  </span><span style="color: #204a87; font-weight: bold">awsNodeJSEC2</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Type</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">AWS::EC2::Instance</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Properties</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">KeyName</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">!Ref</span><span style="color: #f8f8f8"> </span><span style="color: #000000">MyKeyName</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">AvailabilityZone</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #000000; font-weight: bold">{</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Fn::Select&quot;</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;0&quot;</span><span style="color: #000000; font-weight: bold">,</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Fn::GetAZs&quot;</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Ref&quot;</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;AWS::Region&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">}</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">}]</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">}</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">ImageId</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">ami-0218d08a1f9dac831</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">InstanceType</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">t3.micro</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">SecurityGroups</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">!Ref</span><span style="color: #f8f8f8"> </span><span style="color: #000000">awsNodeJSSSHWEBSG</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">IamInstanceProfile</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">!Ref</span><span style="color: #f8f8f8"> </span><span style="color: #000000">awsNodeJSMyInstanceProfile</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">BlockDeviceMappings</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">DeviceName</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">/dev/xvda</span>
-<span style="color: #f8f8f8">          </span><span style="color: #204a87; font-weight: bold">Ebs</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">            </span><span style="color: #204a87; font-weight: bold">VolumeType</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">gp2</span>
-<span style="color: #f8f8f8">            </span><span style="color: #204a87; font-weight: bold">VolumeSize</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">8</span>
-<span style="color: #f8f8f8">            </span><span style="color: #204a87; font-weight: bold">DeleteOnTermination</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">true</span>
-<span style="color: #f8f8f8">            </span><span style="color: #204a87; font-weight: bold">Encrypted</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">false</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">UserData</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #204a87; font-weight: bold">Fn::Base64</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">|</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">#!/bin/bash</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">yum update -y</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">timedatectl set-timezone &quot;Asia/Tokyo&quot;</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">localectl set-locale LANG=ja_JP.UTF-8          </span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">touch /home/ec2-user/.hushlogin</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">chown ec2-user:ec2-user /home/ec2-user/.hushlogin</span>
+<span class="nt">Resources</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">awsNodeJSEC2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::EC2::Instance</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">KeyName</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MyKeyName</span>
+<span class="w">      </span><span class="nt">AvailabilityZone</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="s">&quot;Fn::Select&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;0&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="s">&quot;Fn::GetAZs&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="w"> </span><span class="s">&quot;Ref&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;AWS::Region&quot;</span><span class="w"> </span><span class="p p-Indicator">}</span><span class="w"> </span><span class="p p-Indicator">}]</span><span class="w"> </span><span class="p p-Indicator">}</span>
+<span class="w">      </span><span class="nt">ImageId</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ami-0218d08a1f9dac831</span>
+<span class="w">      </span><span class="nt">InstanceType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">t3.micro</span>
+<span class="w">      </span><span class="nt">SecurityGroups</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awsNodeJSSSHWEBSG</span>
+<span class="w">      </span><span class="nt">IamInstanceProfile</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awsNodeJSMyInstanceProfile</span>
+<span class="w">      </span><span class="nt">BlockDeviceMappings</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">DeviceName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/dev/xvda</span>
+<span class="w">          </span><span class="nt">Ebs</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">VolumeType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gp2</span>
+<span class="w">            </span><span class="nt">VolumeSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+<span class="w">            </span><span class="nt">DeleteOnTermination</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">            </span><span class="nt">Encrypted</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">UserData</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">Fn::Base64</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">#!/bin/bash</span>
+<span class="w">          </span><span class="no">yum update -y</span>
+<span class="w">          </span><span class="no">timedatectl set-timezone &quot;Asia/Tokyo&quot;</span>
+<span class="w">          </span><span class="no">localectl set-locale LANG=ja_JP.UTF-8          </span>
+<span class="w">          </span><span class="no">touch /home/ec2-user/.hushlogin</span>
+<span class="w">          </span><span class="no">chown ec2-user:ec2-user /home/ec2-user/.hushlogin</span>
 
-<span style="color: #f8f8f8">          </span><span style="color: #000000">curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;/tmp/awscliv2.zip&quot;</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">unzip /tmp/awscliv2.zip  -d /tmp/awscliv2/</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">/tmp/awscliv2/aws/install</span>
+<span class="w">          </span><span class="no">curl &quot;https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip&quot; -o &quot;/tmp/awscliv2.zip&quot;</span>
+<span class="w">          </span><span class="no">unzip /tmp/awscliv2.zip  -d /tmp/awscliv2/</span>
+<span class="w">          </span><span class="no">/tmp/awscliv2/aws/install</span>
 
-<span style="color: #f8f8f8">          </span><span style="color: #000000">curl -sL https://rpm.nodesource.com/setup_14.x | bash -</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">yum install -y gcc-c++ make</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000">yum install -y nodejs</span>
+<span class="w">          </span><span class="no">curl -sL https://rpm.nodesource.com/setup_14.x | bash -</span>
+<span class="w">          </span><span class="no">yum install -y gcc-c++ make</span>
+<span class="w">          </span><span class="no">yum install -y nodejs</span>
 
-<span style="color: #f8f8f8">  </span><span style="color: #204a87; font-weight: bold">awsNodeJSSSHWEBSG</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Type</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">AWS::EC2::SecurityGroup</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Properties</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">GroupDescription</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">SSH and Web PORT</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">SecurityGroupIngress</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">IpProtocol</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">tcp</span>
-<span style="color: #f8f8f8">          </span><span style="color: #204a87; font-weight: bold">FromPort</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">22</span>
-<span style="color: #f8f8f8">          </span><span style="color: #204a87; font-weight: bold">ToPort</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">22</span>
-<span style="color: #f8f8f8">          </span><span style="color: #204a87; font-weight: bold">CidrIp</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">0.0.0.0/0</span>
-<span style="color: #f8f8f8">        </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">IpProtocol</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">tcp</span>
-<span style="color: #f8f8f8">          </span><span style="color: #204a87; font-weight: bold">FromPort</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">80</span>
-<span style="color: #f8f8f8">          </span><span style="color: #204a87; font-weight: bold">ToPort</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">80</span>
-<span style="color: #f8f8f8">          </span><span style="color: #204a87; font-weight: bold">CidrIp</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">0.0.0.0/0</span>
+<span class="w">  </span><span class="nt">awsNodeJSSSHWEBSG</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::EC2::SecurityGroup</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">GroupDescription</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SSH and Web PORT</span>
+<span class="w">      </span><span class="nt">SecurityGroupIngress</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">IpProtocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
+<span class="w">          </span><span class="nt">FromPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span>
+<span class="w">          </span><span class="nt">ToPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span>
+<span class="w">          </span><span class="nt">CidrIp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">IpProtocol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tcp</span>
+<span class="w">          </span><span class="nt">FromPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">          </span><span class="nt">ToPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">80</span>
+<span class="w">          </span><span class="nt">CidrIp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0.0.0/0</span>
 
-<span style="color: #f8f8f8">  </span><span style="color: #204a87; font-weight: bold">awsNodeJSAccessRole</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Type</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;AWS::IAM::Role&quot;</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Properties</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">AssumeRolePolicyDocument</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #204a87; font-weight: bold">Version</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;2012-10-17&quot;</span>
-<span style="color: #f8f8f8">        </span><span style="color: #204a87; font-weight: bold">Statement</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">          </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">Effect</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Allow&quot;</span>
-<span style="color: #f8f8f8">            </span><span style="color: #204a87; font-weight: bold">Principal</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">              </span><span style="color: #204a87; font-weight: bold">Service</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">                </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ec2.amazonaws.com&quot;</span>
-<span style="color: #f8f8f8">            </span><span style="color: #204a87; font-weight: bold">Action</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">              </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;sts:AssumeRole&quot;</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">Path</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;/&quot;</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">ManagedPolicyArns</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #000000">arn:aws:iam::aws:policy/AdministratorAccess</span>
+<span class="w">  </span><span class="nt">awsNodeJSAccessRole</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::IAM::Role&quot;</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">AssumeRolePolicyDocument</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">Version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2012-10-17&quot;</span>
+<span class="w">        </span><span class="nt">Statement</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Effect</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Allow&quot;</span>
+<span class="w">            </span><span class="nt">Principal</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">Service</span><span class="p">:</span>
+<span class="w">                </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;ec2.amazonaws.com&quot;</span>
+<span class="w">            </span><span class="nt">Action</span><span class="p">:</span>
+<span class="w">              </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;sts:AssumeRole&quot;</span>
+<span class="w">      </span><span class="nt">Path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
+<span class="w">      </span><span class="nt">ManagedPolicyArns</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arn:aws:iam::aws:policy/AdministratorAccess</span>
 
-<span style="color: #f8f8f8">  </span><span style="color: #204a87; font-weight: bold">awsNodeJSMyInstanceProfile</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Type</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;AWS::IAM::InstanceProfile&quot;</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Properties</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">Path</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;/&quot;</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">Roles</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">        </span><span style="color: #000000; font-weight: bold">-</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">!Ref</span><span style="color: #f8f8f8"> </span><span style="color: #000000">awsNodeJSAccessRole</span>
+<span class="w">  </span><span class="nt">awsNodeJSMyInstanceProfile</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;AWS::IAM::InstanceProfile&quot;</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">Path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/&quot;</span>
+<span class="w">      </span><span class="nt">Roles</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awsNodeJSAccessRole</span>
 
-<span style="color: #f8f8f8">  </span><span style="color: #204a87; font-weight: bold">awsNodeJSEIP</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Type</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #000000">AWS::EC2::EIP</span>
-<span style="color: #f8f8f8">    </span><span style="color: #204a87; font-weight: bold">Properties</span><span style="color: #000000; font-weight: bold">:</span>
-<span style="color: #f8f8f8">      </span><span style="color: #204a87; font-weight: bold">InstanceId</span><span style="color: #000000; font-weight: bold">:</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">!Ref</span><span style="color: #f8f8f8"> </span><span style="color: #000000">awsNodeJSEC2</span>
-</code></pre></div></td></tr></table></div>
-
+<span class="w">  </span><span class="nt">awsNodeJSEIP</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AWS::EC2::EIP</span>
+<span class="w">    </span><span class="nt">Properties</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">InstanceId</span><span class="p">:</span><span class="w"> </span><span class="kt">!Ref</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">awsNodeJSEC2</span>
+</code></pre></div>
 <h1 id="vscode">三、VSCode 插件安装<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h1>
 <blockquote>
 <p>在 VSCode 中安装 Terraform 插件</p>
@@ -998,6 +880,8 @@ Default region name [None]: ap-northeast-1
 <h3 id="vscode-terraform">在 VSCode 中安装 Terraform 插件<a class="headerlink" href="#vscode-terraform" title="Permanent link">&para;</a></h3>
 <p>在 VSCode 中搜索扩展 HashiCorp Terraform， 然后安装。</p>
 
+
+  
 
 
 

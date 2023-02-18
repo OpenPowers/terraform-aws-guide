@@ -260,6 +260,21 @@
   
   
     <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        0、大纲
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../1%E3%80%81%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         1、简介
       </a>
@@ -709,7 +724,7 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>$<span style="color: #f8f8f8"> </span>vim<span style="color: #f8f8f8"> </span>main.tf
 </code></pre></div></td></tr></table></div>
 <p><em>main.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1"> 1</a></span>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1"> 1</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2"> 2</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3"> 3</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4"> 4</a></span>
@@ -746,40 +761,40 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-35">35</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-36">36</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #8f5902; font-style: italic">###########################################################</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2"></a><span style="color: #8f5902; font-style: italic"># Terraform 基本设置</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>terraform<span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 声明provider</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span style="color: #f8f8f8">  </span>required_providers<span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/browse/providers</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span style="color: #f8f8f8">    </span><span style="color: #000000">aws</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span style="color: #f8f8f8">      </span><span style="color: #204a87">source</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;hashicorp/aws&quot;</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span style="color: #f8f8f8">      </span><span style="color: #000000">version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;~&gt; 3.74&quot;</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span style="color: #f8f8f8">    </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 声明Terraform版本</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">required_version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;&gt;= 1.1.4&quot;</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span style="color: #ce5c00; font-weight: bold">}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span style="color: #204a87">terraform</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span style="color: #8f5902; font-style: italic">    # 声明provider</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">required_providers</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span style="color: #8f5902; font-style: italic">    # https://registry.terraform.io/browse/providers</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span style="color: #f8f8f8">    </span><span style="color: #204a87">aws</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span style="color: #f8f8f8">      </span><span style="color: #c4a000">source</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;hashicorp/aws&quot;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span style="color: #f8f8f8">      </span><span style="color: #c4a000">version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;~&gt; 3.74&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span style="color: #f8f8f8">    </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span style="color: #8f5902; font-style: italic">    # 声明Terraform版本</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">required_version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;&gt;= 1.1.4&quot;</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span style="color: #000000; font-weight: bold">}</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15"></a>
 <a id="__codelineno-1-16" name="__codelineno-1-16"></a><span style="color: #8f5902; font-style: italic">###########################################################</span>
 <a id="__codelineno-1-17" name="__codelineno-1-17"></a><span style="color: #8f5902; font-style: italic"># 提供商设置(云平台)</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18"></a><span style="color: #8f5902; font-style: italic"># 描述AWS Provider</span>
 <a id="__codelineno-1-19" name="__codelineno-1-19"></a><span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/providers/hashicorp/aws/latest</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>provider<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># ~/.aws/credentials文件的[name]</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">profile</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws&quot;</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">region</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ap-northeast-1&quot;</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span style="color: #ce5c00; font-weight: bold">}</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span style="color: #204a87; font-weight: bold">provider</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span style="color: #8f5902; font-style: italic">    # ~/.aws/credentials文件的[name]</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">profile</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws&quot;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">region</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ap-northeast-1&quot;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span style="color: #000000; font-weight: bold">}</span>
 <a id="__codelineno-1-25" name="__codelineno-1-25"></a>
 <a id="__codelineno-1-26" name="__codelineno-1-26"></a><span style="color: #8f5902; font-style: italic">###########################################################</span>
 <a id="__codelineno-1-27" name="__codelineno-1-27"></a><span style="color: #8f5902; font-style: italic"># 描述要生成的资源设置</span>
 <a id="__codelineno-1-28" name="__codelineno-1-28"></a><span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami</span>
 <a id="__codelineno-1-29" name="__codelineno-1-29"></a><span style="color: #8f5902; font-style: italic"># https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>resource<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws_instance&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;myweb_server&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">ami</span><span style="color: #f8f8f8">           </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ami-0218d08a1f9dac831&quot;</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">instance_type</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;t3.micro&quot;</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">tags</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span style="color: #f8f8f8">    </span><span style="color: #000000">Name</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws-ec2-from-terraform&quot;</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span style="color: #ce5c00; font-weight: bold">}</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span style="color: #204a87; font-weight: bold">resource</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws_instance&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;myweb_server&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">ami</span><span style="color: #f8f8f8">           </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ami-0218d08a1f9dac831&quot;</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">instance_type</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;t3.micro&quot;</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">tags</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">Name</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws-ec2-from-terraform&quot;</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span style="color: #000000; font-weight: bold">}</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="terraform">遵循 Terraform 工作流程完成资源部署<a class="headerlink" href="#terraform" title="Permanent link">&para;</a></h3>
 <div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>

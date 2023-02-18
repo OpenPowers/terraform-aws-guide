@@ -258,6 +258,21 @@
   
   
     <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        0、大纲
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../1%E3%80%81%E7%AE%80%E4%BB%8B/" class="md-nav__link">
         1、简介
       </a>
@@ -547,33 +562,62 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    建立可用区数据源
-  </a>
-  
-    <nav class="md-nav" aria-label="建立可用区数据源">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    输出可用区一览
+    目录结构
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#ec2-ami-ami" class="md-nav__link">
+    编写 EC2 AMI 数据源文件， 始终保持使用最新的 AMI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    编写安全组定义文件
+  </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#ec2_1" class="md-nav__link">
-    在 EC2 资源描述中应用可用区数据源
+    定义 EC2 启动环境映射
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    建立可用区数据源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2_2" class="md-nav__link">
+    在 EC2 资源描述中应用可用区数据源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf" class="md-nav__link">
+    编写 TF 项目描述文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs-ec2" class="md-nav__link">
+    修改 Outputs 输出定义(由于生成多台EC2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     运行模版确认动作
   </a>
   
@@ -649,33 +693,62 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    建立可用区数据源
-  </a>
-  
-    <nav class="md-nav" aria-label="建立可用区数据源">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    输出可用区一览
+    目录结构
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#ec2-ami-ami" class="md-nav__link">
+    编写 EC2 AMI 数据源文件， 始终保持使用最新的 AMI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    编写安全组定义文件
+  </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#ec2_1" class="md-nav__link">
-    在 EC2 资源描述中应用可用区数据源
+    定义 EC2 启动环境映射
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
+    建立可用区数据源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2_2" class="md-nav__link">
+    在 EC2 资源描述中应用可用区数据源
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tf" class="md-nav__link">
+    编写 TF 项目描述文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs-ec2" class="md-nav__link">
+    修改 Outputs 输出定义(由于生成多台EC2)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     运行模版确认动作
   </a>
   
@@ -719,61 +792,148 @@
 <li>运行模版确认动作</li>
 </ul>
 <h2 id="_4">操作步骤<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">建立可用区数据源<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><em>ec2-aws_availability_zones.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1"> 1</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2"> 2</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3"> 3</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4"> 4</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5"> 5</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-6"> 6</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-7"> 7</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-8"> 8</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-9"> 9</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-10">10</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span style="color: #8f5902; font-style: italic"># 取得已启用的可用区资源</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>data<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws_availability_zones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;deeplearnaws_azones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span style="color: #f8f8f8">  </span>filter<span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 区域状态</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span style="color: #f8f8f8">    </span><span style="color: #000000">name</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;opt-in-status&quot;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># opt-in-not-required: 已启用区域</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># not-opted-in:        未启用区域</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># opted-in:            启用选择加入的区域</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span style="color: #f8f8f8">    </span><span style="color: #000000">values</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">[</span><span style="color: #4e9a06">&quot;opt-in-not-required&quot;</span><span style="color: #ce5c00; font-weight: bold">]</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span style="color: #ce5c00; font-weight: bold">}</span>
+<h3 id="_5">目录结构<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-7">7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>.
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>├──<span style="color: #f8f8f8"> </span>ec2-aws_ami.tf
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>├──<span style="color: #f8f8f8"> </span>ec2-sg.tf
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>├──<span style="color: #f8f8f8"> </span>ec2-variables.tf
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>├──<span style="color: #f8f8f8"> </span>ec2-aws_availability_zones.tf
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>├──<span style="color: #f8f8f8"> </span>ec2.tf
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>├──<span style="color: #f8f8f8"> </span>main.tf
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>└──<span style="color: #f8f8f8"> </span>ec2-outputs.tf
 </code></pre></div></td></tr></table></div>
-<p><em>管理 AWS 区域 - 参照网页</em></p>
-<p><a href="https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande-manage.html">https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande-manage.html</a></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1">1</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2">2</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3">3</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4">4</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5">5</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>$<span style="color: #f8f8f8"> </span>aws<span style="color: #f8f8f8"> </span>ec2<span style="color: #f8f8f8"> </span>describe-regions<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span style="color: #f8f8f8">    </span>--all-regions<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span style="color: #f8f8f8">    </span>--query<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Regions[].[RegionName, OptInStatus]&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span style="color: #f8f8f8">    </span>--output<span style="color: #f8f8f8"> </span>table<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span style="color: #f8f8f8">    </span>--profile<span style="color: #f8f8f8"> </span>deeplearnaws<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span style="color: #f8f8f8">    </span>--region<span style="color: #f8f8f8"> </span>ap-northeast-1
+<h3 id="ec2-ami-ami">编写 EC2 AMI 数据源文件， 始终保持使用最新的 AMI<a class="headerlink" href="#ec2-ami-ami" title="Permanent link">&para;</a></h3>
+<p><em>ec2-aws_ami.tf</em></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-1-18">18</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span style="color: #204a87; font-weight: bold">data</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws_ami&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;myami&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span style="color: #8f5902; font-style: italic">  # 最新使用</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">most_recent</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">true</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span style="color: #8f5902; font-style: italic">  # amazon官方认证</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">owners</span><span style="color: #f8f8f8">      </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;amazon&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span style="color: #8f5902; font-style: italic">  # 镜像文件名称过滤</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">filter</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">name</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;name&quot;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">values</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;amzn-ami-hvm-*-x86_64-gp2&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span style="color: #8f5902; font-style: italic">  # 根设备过滤条件</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">filter</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">name</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;root-device-type&quot;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">values</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;ebs&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span style="color: #000000; font-weight: bold">}</span>
 </code></pre></div></td></tr></table></div>
-<h4 id="_6">输出可用区一览<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<p><em>ec2-outputs.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1">1</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2">2</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3">3</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4">4</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5">5</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>output<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;deeplearnaws_azones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span style="color: #f8f8f8">  </span><span style="color: #8f5902; font-style: italic"># 输出可用区一览</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">value</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>data.aws_availability_zones.deeplearnaws_azones.names
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span style="color: #ce5c00; font-weight: bold">}</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>plan
+<h3 id="_6">编写安全组定义文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><em>ec2-sg.tf</em></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-18">18</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-19">19</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-20">20</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-21">21</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-22">22</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-23">23</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-24">24</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-25">25</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-26">26</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-27">27</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-28">28</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-29">29</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-30">30</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-31">31</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-32">32</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-33">33</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-34">34</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-35">35</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-36">36</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-37">37</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-38">38</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-39">39</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-40">40</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-2-41">41</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span style="color: #8f5902; font-style: italic"># Create Security Group</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span style="color: #204a87; font-weight: bold">resource</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws_security_group&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;learnaws-sg-web-ssh&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span style="color: #8f5902; font-style: italic">  # 安全组的名称</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">name</span><span style="color: #f8f8f8">        </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws-sg-web-ssh&quot;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">description</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Web and SSH&quot;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span style="color: #8f5902; font-style: italic">  # 安全组的入口描述</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">ingress</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">description</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Allow Port 80&quot;</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">from_port</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">80</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">to_port</span><span style="color: #f8f8f8">     </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">80</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">protocol</span><span style="color: #f8f8f8">    </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;tcp&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span style="color: #8f5902; font-style: italic">    # 允许范围，这里是所有ip都可访问</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">cidr_blocks</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;0.0.0.0/0&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">ingress</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">description</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Allow Port 443&quot;</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">from_port</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">443</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">to_port</span><span style="color: #f8f8f8">     </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">443</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">protocol</span><span style="color: #f8f8f8">    </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;tcp&quot;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">cidr_blocks</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;0.0.0.0/0&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">ingress</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">description</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Allow Port 22&quot;</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">from_port</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">22</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">to_port</span><span style="color: #f8f8f8">     </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">22</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">protocol</span><span style="color: #f8f8f8">    </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;tcp&quot;</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">cidr_blocks</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;0.0.0.0/0&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span style="color: #8f5902; font-style: italic">    # cidr_blocks = [&quot;12.15.55.32/32&quot;]</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span style="color: #8f5902; font-style: italic">  # 安全组的出口描述</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">egress</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">description</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Allow all ip and ports outbound&quot;</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">from_port</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">0</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">to_port</span><span style="color: #f8f8f8">     </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #0000cf; font-weight: bold">0</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">protocol</span><span style="color: #f8f8f8">    </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;-1&quot;</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">cidr_blocks</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;0.0.0.0/0&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">tags</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">Name</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws-sg-web-ssh&quot;</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41"></a><span style="color: #000000; font-weight: bold">}</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="ec2_1">在 EC2 资源描述中应用可用区数据源<a class="headerlink" href="#ec2_1" title="Permanent link">&para;</a></h3>
-<p><em>ec2.tf</em></p>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1"> 1</a></span>
+<h3 id="ec2_1">定义 EC2 启动环境映射<a class="headerlink" href="#ec2_1" title="Permanent link">&para;</a></h3>
+<p><em>ec2-variables.tf</em></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-1"> 1</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-2"> 2</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-3"> 3</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-4"> 4</a></span>
@@ -788,25 +948,26 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-13">13</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-14">14</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-15">15</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-16">16</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #8f5902; font-style: italic">###########################################################</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span style="color: #8f5902; font-style: italic"># EC2 资源设置</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>resource<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;aws_instance&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;myweb_server2&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">ami</span><span style="color: #f8f8f8">                    </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>data.aws_ami.komaami.id
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">instance_type</span><span style="color: #f8f8f8">          </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>var.instance_type_env<span style="color: #ce5c00; font-weight: bold">[</span><span style="color: #4e9a06">&quot;dev&quot;</span><span style="color: #ce5c00; font-weight: bold">]</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">vpc_security_group_ids</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">[</span>aws_security_group.deeplearnaws-sg-web-ssh.id<span style="color: #ce5c00; font-weight: bold">]</span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-3-16">16</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span style="color: #8f5902; font-style: italic"># AWS Region</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span style="color: #204a87; font-weight: bold">variable</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws_region&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">description</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;AWS Region&quot;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">type</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #204a87; font-weight: bold">string</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">default</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;ap-northeast-1&quot;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span style="color: #000000; font-weight: bold">}</span>
 <a id="__codelineno-3-7" name="__codelineno-3-7"></a>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span style="color: #f8f8f8">  </span><span style="color: #8f5902; font-style: italic"># 循环可用区数据源</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">for_each</span><span style="color: #f8f8f8">          </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>toset<span style="color: #ce5c00; font-weight: bold">(</span>data.aws_availability_zones.deeplearnaws_azones.names<span style="color: #ce5c00; font-weight: bold">)</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span style="color: #f8f8f8">  </span><span style="color: #8f5902; font-style: italic"># 取得数据源赋予可用区属性</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">availability_zone</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span>each.key
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span style="color: #f8f8f8">  </span><span style="color: #000000">tags</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">{</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span style="color: #f8f8f8">    </span><span style="color: #8f5902; font-style: italic"># 赋予 tagName 标签</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span style="color: #f8f8f8">    </span><span style="color: #4e9a06">&quot;Name&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;deeplearnaws-tf-ec2-${</span><span style="color: #000000">each</span><span style="color: #000000; font-weight: bold">.key</span><span style="color: #4e9a06">}&quot;</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">}</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span style="color: #ce5c00; font-weight: bold">}</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span style="color: #8f5902; font-style: italic"># AWS EC2 Instance Env</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span style="color: #204a87; font-weight: bold">variable</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;instance_type_env&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">description</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;EC2 Instnace Type Env&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">type</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">map</span><span style="color: #000000; font-weight: bold">(</span><span style="color: #204a87; font-weight: bold">string</span><span style="color: #000000; font-weight: bold">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">default</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span style="color: #f8f8f8">    </span><span style="color: #4e9a06">&quot;dev&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;t2.micro&quot;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span style="color: #f8f8f8">    </span><span style="color: #4e9a06">&quot;prod&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;t2.large&quot;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span style="color: #000000; font-weight: bold">}</span>
 </code></pre></div></td></tr></table></div>
-<h3 id="_7">运行模版确认动作<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1"> 1</a></span>
+<h3 id="_7">建立可用区数据源<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><em>ec2-aws_availability_zones.tf</em></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-1"> 1</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-2"> 2</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-3"> 3</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-4"> 4</a></span>
@@ -816,20 +977,166 @@
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-8"> 8</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-9"> 9</a></span>
 <span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-10">10</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-11">11</a></span>
-<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #8f5902; font-style: italic"># 目录初始化</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>init
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span style="color: #8f5902; font-style: italic"># 检验 tf 文件</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>validate
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span style="color: #8f5902; font-style: italic"># 实施计划, 准备资源</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>plan
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span style="color: #8f5902; font-style: italic"># 应用部署</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>apply
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>apply<span style="color: #f8f8f8"> </span>-auto-approve
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span style="color: #8f5902; font-style: italic"># 摧毁系统</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>destroy
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>destroy<span style="color: #f8f8f8"> </span>-auto-approve
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span style="color: #8f5902; font-style: italic"># 取得已启用的可用区资源</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span style="color: #204a87; font-weight: bold">data</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws_availability_zones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;learnaws_azones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">filter</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span style="color: #8f5902; font-style: italic">    # 区域状态</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">name</span><span style="color: #f8f8f8">   </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;opt-in-status&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span style="color: #8f5902; font-style: italic">    # opt-in-not-required: 已启用区域</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span style="color: #8f5902; font-style: italic">    # not-opted-in:        未启用区域</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span style="color: #8f5902; font-style: italic">    # opted-in:            启用选择加入的区域</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span style="color: #f8f8f8">    </span><span style="color: #c4a000">values</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;opt-in-not-required&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span style="color: #000000; font-weight: bold">}</span>
 </code></pre></div></td></tr></table></div>
+<p><em>管理 AWS 区域 - 参照网页</em></p>
+<p><a href="https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande-manage.html">https://docs.aws.amazon.com/zh_cn/general/latest/gr/rande-manage.html</a></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-1">1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-2">2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-3">3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-4">4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-5">5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-6">6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span style="color: #8f5902; font-style: italic"># 可以使用aws cli命令，查询当前的账号已经启用了哪些区域和未启用哪些区域</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>$<span style="color: #f8f8f8"> </span>aws<span style="color: #f8f8f8"> </span>ec2<span style="color: #f8f8f8"> </span>describe-regions<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span style="color: #f8f8f8">    </span>--all-regions<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span style="color: #f8f8f8">    </span>--query<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;Regions[].[RegionName, OptInStatus]&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span style="color: #f8f8f8">    </span>--output<span style="color: #f8f8f8"> </span>table<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span style="color: #f8f8f8">    </span>--profile<span style="color: #f8f8f8"> </span>learnaws<span style="color: #f8f8f8"> </span><span style="color: #4e9a06">\</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span style="color: #f8f8f8">    </span>--region<span style="color: #f8f8f8"> </span>ap-northeast-1
+</code></pre></div></td></tr></table></div>
+<h3 id="ec2_2">在 EC2 资源描述中应用可用区数据源<a class="headerlink" href="#ec2_2" title="Permanent link">&para;</a></h3>
+<p><em>ec2.tf</em></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-6-16">16</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span style="color: #8f5902; font-style: italic">###########################################################</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span style="color: #8f5902; font-style: italic"># EC2 资源设置</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span style="color: #204a87; font-weight: bold">resource</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws_instance&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;myweb_server2&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">ami</span><span style="color: #f8f8f8">                    </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">data.aws_ami.myami.id</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">instance_type</span><span style="color: #f8f8f8">          </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">var.instance_type_env</span><span style="color: #000000; font-weight: bold">[</span><span style="color: #4e9a06">&quot;dev&quot;</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">vpc_security_group_ids</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">[</span><span style="color: #000000">aws_security_group.learnaws-sg-web-ssh.id</span><span style="color: #000000; font-weight: bold">]</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span style="color: #8f5902; font-style: italic">  # 循环可用区数据源。这样会启动3台EC2，因为有3个可用区，如下ec2-outputs.tf文件所示</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">for_each</span><span style="color: #f8f8f8">          </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">toset</span><span style="color: #000000; font-weight: bold">(</span><span style="color: #000000">data.aws_availability_zones.learnaws_azones.names</span><span style="color: #000000; font-weight: bold">)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span style="color: #8f5902; font-style: italic">  # 取得数据源赋予可用区属性</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">availability_zone</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">each.key</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">tags</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span style="color: #8f5902; font-style: italic">    # 赋予 tagName 标签</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span style="color: #f8f8f8">    </span><span style="color: #4e9a06">&quot;Name&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws-tf-ec2-${each.key}&quot;</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span style="color: #000000; font-weight: bold">}</span>
+</code></pre></div></td></tr></table></div>
+<p><em>for_each语法参考文档</em></p>
+<p><a href="https://developer.hashicorp.com/terraform/language/meta-arguments/for_each#basic-syntax">https://developer.hashicorp.com/terraform/language/meta-arguments/for_each#basic-syntax</a></p>
+<h3 id="tf">编写 TF 项目描述文件<a class="headerlink" href="#tf" title="Permanent link">&para;</a></h3>
+<p><em>main.tf</em></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-14">14</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-15">15</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-16">16</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-17">17</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-7-18">18</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span style="color: #8f5902; font-style: italic">###########################################################</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span style="color: #8f5902; font-style: italic"># Terraform 基本设置</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span style="color: #204a87">terraform</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span style="color: #f8f8f8">  </span><span style="color: #204a87">required_providers</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span style="color: #f8f8f8">    </span><span style="color: #204a87">aws</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span style="color: #f8f8f8">      </span><span style="color: #c4a000">source</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;hashicorp/aws&quot;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span style="color: #f8f8f8">      </span><span style="color: #c4a000">version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;~&gt; 3.71&quot;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span style="color: #f8f8f8">    </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span style="color: #f8f8f8">  </span><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">required_version</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;&gt;= 1.1.3&quot;</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span style="color: #8f5902; font-style: italic">###########################################################</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span style="color: #8f5902; font-style: italic"># 提供商设置(云平台)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span style="color: #204a87; font-weight: bold">provider</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;aws&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">profile</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #4e9a06">&quot;learnaws&quot;</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">region</span><span style="color: #f8f8f8">  </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">var.aws_region</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span style="color: #000000; font-weight: bold">}</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="outputs-ec2">修改 Outputs 输出定义(由于生成多台EC2)<a class="headerlink" href="#outputs-ec2" title="Permanent link">&para;</a></h3>
+<p><em>ec2-outputs.tf</em></p>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Terraform</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-12">12</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-13">13</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-8-14">14</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span style="color: #204a87; font-weight: bold">output</span><span style="color: #f8f8f8"> </span><span style="color: #000000">&quot;learnaws_azones&quot;</span><span style="color: #f8f8f8"> </span><span style="color: #000000; font-weight: bold">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span style="color: #8f5902; font-style: italic">  # 输出可用区一览</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span style="color: #f8f8f8">  </span><span style="color: #c4a000">value</span><span style="color: #f8f8f8"> </span><span style="color: #ce5c00; font-weight: bold">=</span><span style="color: #f8f8f8"> </span><span style="color: #000000">data.aws_availability_zones.learnaws_azones.names</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span style="color: #000000; font-weight: bold">}</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span style="color: #8f5902; font-style: italic"># 最后输出的样式如下:</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span style="color: #8f5902; font-style: italic"># learnaws_azones = [</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span style="color: #8f5902; font-style: italic">#       &quot;ap-northeast-1a&quot;,</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span style="color: #8f5902; font-style: italic">#   &quot;ap-northeast-1c&quot;,</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span style="color: #8f5902; font-style: italic">#   &quot;ap-northeast-1d&quot;,</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span style="color: #8f5902; font-style: italic">#  ]</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span style="color: #8f5902; font-style: italic"># 增加4个资源: 3台EC2、1个安全组</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span style="color: #8f5902; font-style: italic"># Plan: 4 to add, 0 to change, 0 to destroy.</span>
+</code></pre></div></td></tr></table></div>
+<p><em>EC2资源属性参照</em></p>
+<p><a href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance">https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance</a></p>
+<h3 id="_8">运行模版确认动作<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<div class="highlight" style="background: #f8f8f8"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">Bash</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-1"> 1</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-2"> 2</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-3"> 3</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-4"> 4</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-5"> 5</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-6"> 6</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-7"> 7</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-8"> 8</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-9"> 9</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-10">10</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-11">11</a></span>
+<span style="color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px;"><a href="#__codelineno-9-12">12</a></span></pre></div></td><td class="code"><div><pre style="line-height: 125%;"><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span style="color: #8f5902; font-style: italic"># 目录初始化</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>init
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span style="color: #8f5902; font-style: italic"># 检验 tf 文件</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>validate
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span style="color: #8f5902; font-style: italic"># 实施计划, 准备资源</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>plan
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span style="color: #8f5902; font-style: italic"># 应用部署</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>apply
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>apply<span style="color: #f8f8f8"> </span>-auto-approve
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span style="color: #8f5902; font-style: italic"># 摧毁系统</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>destroy
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>$<span style="color: #f8f8f8"> </span>terraform<span style="color: #f8f8f8"> </span>destroy<span style="color: #f8f8f8"> </span>-auto-approve
+</code></pre></div></td></tr></table></div>
+<p>最终会发现分别在“ap-northeast-1a”、“ap-northeast-1c”、“ap-northeast-1d”可用区中增加1台EC2</p>
 
   <hr>
 <div class="md-source-file">
